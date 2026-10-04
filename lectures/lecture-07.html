@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lecture 07: Positioning, Stacking and Floats | Web Technologies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Sora:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body id="top">
+
+    <header class="nav">
+        <div class="wrap">
+            <a class="brand" href="../index.html"><span class="brand-mark">WT</span><span class="brand-text">Web
+                    Technologies</span></a>
+            <nav aria-label="Main">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#lectures">Lectures</a></li>
+                    <li><a href="#practice">Practice</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="lecture-head">
+        <div class="wrap">
+            <p class="crumbs"><a href="../index.html">Home</a> / <a href="../index.html#lectures">Lectures</a> / Lecture
+                07</p>
+            <h1>Positioning, Stacking and Floats</h1>
+            <p>How the browser lays elements out by default, and how to move them with positioning, z-index and floats.
+            </p>
+            <div class="counter"><span>Lecture 07</span></div>
+        </div>
+    </div>
+
+    <div class="wrap lecture-layout">
+        <aside class="toc" aria-label="On this page">
+            <h2>On this page</h2>
+            <ol>
+                <li><a href="#learn">What you will learn</a></li>
+                <li><a href="#content">Lecture content</a></li>
+                <li><a href="#example">Worked example</a></li>
+                <li><a href="#try">Try it yourself</a></li>
+                <li><a href="#practice">Practice</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#check">Quick check</a></li>
+                <li><a href="#tips">Tips and mistakes</a></li>
+            </ol>
+        </aside>
+
+        <main class="lecture-body">
+            <section id="learn">
+                <h2>What you will learn</h2>
+                <ul class="learn-list">
+                    <li>What normal document flow and static positioning are.</li>
+                    <li>Relative, absolute, fixed and sticky positioning.</li>
+                    <li>The containing block and the offset properties.</li>
+                    <li>How z-index and stacking contexts decide what is in front.</li>
+                    <li>How floats work, how to clear them, and common layout pitfalls.</li>
+                </ul>
+            </section>
+            <section id="content">
+                <h2>Lecture content</h2>
+                <h3>Normal flow and static positioning</h3>
+                <p>By default elements follow normal flow: block elements stack vertically in source order and inline
+                    elements run along the line. <code>position: static</code> is the default, and offsets such as
+                    <code>top</code> have no effect on it.</p>
+                <h3>The four positioning modes</h3>
+                <div class="cards">
+                    <div class="card">
+                        <h3>relative</h3>
+                        <p>Offset from its normal place. Its original space is kept.</p>
+                    </div>
+                    <div class="card">
+                        <h3>absolute</h3>
+                        <p>Removed from the flow and placed against the nearest positioned ancestor.</p>
+                    </div>
+                    <div class="card">
+                        <h3>fixed</h3>
+                        <p>Placed against the viewport and stays in place when you scroll.</p>
+                    </div>
+                    <div class="card">
+                        <h3>sticky</h3>
+                        <p>Scrolls normally, then sticks once it reaches a set offset.</p>
+                    </div>
+                </div>
+                <p>Use <code>top</code>, <code>right</code>, <code>bottom</code> and <code>left</code> for offsets, or
+                    <code>inset</code> as a shorthand. The containing block for an absolute element is its nearest
+                    positioned ancestor, so put <code>position: relative</code> on the parent.</p>
+                <h3>z-index and stacking contexts</h3>
+                <p><code>z-index</code> sets which positioned element appears in front: higher values are closer to the
+                    viewer. A stacking context is a self-contained group of layers. It can be created by positioned
+                    elements with a z-index, and by properties such as opacity below 1 or transform. A child cannot
+                    escape its parent's stacking context, so a huge z-index inside a low parent can still end up behind
+                    another element.</p>
+                <p>To debug: find the parent stacking contexts, compare z-index values only within the same context, and
+                    check the source order.</p>
+                <h3>Floats</h3>
+                <p><code>float: left</code> or <code>float: right</code> moves an element sideways so text wraps around
+                    it. Use <code>clear: left</code>, <code>right</code> or <code>both</code> to stop wrapping. A parent
+                    containing only floats collapses to zero height, which the clearfix fixes:</p>
+                <pre class="example">.clearfix::after {
+  content: &quot;&quot;;
+  display: block;
+  clear: both;
+}</pre>
+                <h3>Common pitfalls</h3>
+                <div class="cards">
+                    <div class="card">
+                        <h3>Missing margins</h3>
+                        <p>Floated items touch unless you add space.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Widths plus margins</h3>
+                        <p>If they exceed the container, items wrap to the next line.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Fixed heights</h3>
+                        <p>Content can overflow a box that has a set height.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Overflow as a quick fix</h3>
+                        <p>It hides content or adds scrollbars you did not mean to add.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Mixing old and new layouts</h3>
+                        <p>Floats and modern layouts like flexbox clash.</p>
+                    </div>
+                </div>
+                <p>For modern page layouts, flexbox is usually the better choice than floats.</p>
+            </section>
+            <section id="example">
+                <h2>Worked example</h2>
+                <p>A badge placed in the top-right corner of a card.</p>
+                <pre class="example">.card {
+  position: relative;
+}
+.badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+}</pre>
+            </section>
+            <section id="try">
+                <h2>Try it yourself</h2>
+                <p>Edit the code on the left and the result updates on the right. Press Reset to go back to the start.
+                </p>
+                <div class="try">
+                    <div class="try-pane">
+                        <div class="try-bar"><span>Edit the code</span><button type="button" data-reset>Reset</button>
+                        </div><textarea aria-label="Code editor" spellcheck="false">&lt;style&gt;
+  .card { position: relative; width: 200px; height: 100px; background: #eef1ff; }
+  .badge { position: absolute; top: 8px; right: 8px; background: #7c5cff; color: #fff; padding: 2px 8px; }
+&lt;/style&gt;
+&lt;div class=&quot;card&quot;&gt;Card&lt;span class=&quot;badge&quot;&gt;New&lt;/span&gt;&lt;/div&gt;</textarea>
+                    </div>
+                    <div class="try-pane">
+                        <div class="try-bar"><span>Result</span></div><iframe title="Result" sandbox=""></iframe>
+                    </div>
+                </div>
+            </section>
+            <section id="practice">
+                <h2>Practice</h2>
+                <p>Try each challenge in your own editor first, then check the hint and the answer.</p>
+                <div class="grid-2">
+                    <article class="challenge">
+                        <h3>Challenge: choose the position</h3>
+                        <p class="task">A navigation bar must stay at the top of the screen while the page scrolls.
+                            Which position value fits, and what is a gentler alternative?</p>
+                        <details>
+                            <summary>Show hint</summary>
+                            <p>Think about the viewport.</p>
+                        </details>
+                        <details class="answer">
+                            <summary>Show answer</summary>
+                            <p><code>fixed</code> keeps it in the viewport. <code>sticky</code> is gentler: it scrolls
+                                normally until it reaches the top, then sticks.</p>
+                        </details>
+                    </article>
+                    <article class="challenge">
+                        <h3>Challenge: z-index puzzle</h3>
+                        <p class="task">An element has z-index 9999 but still appears behind another element. What could
+                            be the cause?</p>
+                        <details>
+                            <summary>Show hint</summary>
+                            <p>Look at the parents.</p>
+                        </details>
+                        <details class="answer">
+                            <summary>Show answer</summary>
+                            <p>Its parent creates a stacking context with a lower order, so the child cannot rise above
+                                elements outside that context.</p>
+                        </details>
+                    </article>
+                </div>
+            </section>
+            <section id="resources">
+                <h2>Resources</h2>
+                <div class="link-cards"><a class="link-card"
+                        href="https://developer.mozilla.org/en-US/docs/Web/CSS/position" target="_blank"
+                        rel="noopener"><strong>MDN: position</strong><span>All positioning values with
+                            demos.</span></a><a class="link-card"
+                        href="https://developer.mozilla.org/en-US/docs/Web/CSS/z-index" target="_blank"
+                        rel="noopener"><strong>MDN: z-index</strong><span>Stacking and stacking contexts.</span></a><a
+                        class="link-card" href="https://developer.mozilla.org/en-US/docs/Web/CSS/float" target="_blank"
+                        rel="noopener"><strong>MDN: float</strong><span>Floats and clear.</span></a></div>
+            </section>
+            <section id="check" class="quiz">
+                <h2>Quick check</h2>
+                <p>Answer in your head first, then open the answer.</p>
+                <details>
+                    <summary>1. What does position: relative on a parent do for an absolute child?</summary>
+                    <p>It makes the parent the containing block, so the child is positioned against it.</p>
+                </details>
+                <details>
+                    <summary>2. How is sticky different from fixed?</summary>
+                    <p>Sticky scrolls normally until it reaches an offset, then sticks. Fixed is always placed against
+                        the viewport.</p>
+                </details>
+                <details>
+                    <summary>3. Why use a clearfix?</summary>
+                    <p>A parent that contains only floats collapses, and the clearfix gives it back its height.</p>
+                </details>
+            </section>
+            <section id="tips">
+                <h2>Tips and common mistakes</h2>
+                <div class="tip"><b>Common mistake</b>
+                    <p>Using <code>fixed</code> for everything. Fixed elements leave the flow and can cover content or
+                        break on small screens.</p>
+                </div>
+                <div class="tip pro"><b>Pro tip</b>
+                    <p>Whenever you use <code>position: absolute</code>, add <code>position: relative</code> to the
+                        parent first.</p>
+                </div>
+            </section>
+
+            <nav class="pager" aria-label="Lecture navigation">
+                <div class="prev"><a class="btn btn-light" href="lecture-06.html">Previous: Box Model and Display</a>
+                </div>
+                <div class="mid"><a href="../index.html#lectures">All lectures</a></div>
+                <div class="next"><a class="btn btn-primary" href="lecture-08.html">Next: Effects, Fonts, Variables and
+                        Media Queries</a></div>
+            </nav>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="wrap">
+            <div>
+                <h3>Web Technologies</h3>
+                <p>A student-built learning platform for CSC336, made with HTML and CSS only.</p>
+            </div>
+            <div>
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="../index.html#lectures">Lectures</a></li>
+                    <li><a href="../index.html#practice">Practice</a></li>
+                    <li><a href="../index.html#resources">Resources</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Course</h3>
+                <ul>
+                    <li>COMSATS University Islamabad, Vehari Campus</li>
+                    <li>Instructor: Yasmeen Jana</li>
+                </ul>
+            </div>
+            <p class="copy">Designed and built by Amina Maqsood. Web Technologies (CSC336).</p>
+        </div>
+    </footer>
+
+    <script src="../editor.js" defer></script>
+</body>
+
+</html>

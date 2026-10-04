@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lecture 03: HTML Structure and Content | Web Technologies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Sora:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body id="top">
+
+    <header class="nav">
+        <div class="wrap">
+            <a class="brand" href="../index.html">
+                <span class="brand-mark">WT</span>
+                <span class="brand-text">Web Technologies</span>
+            </a>
+            <nav aria-label="Main">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#lectures">Lectures</a></li>
+                    <li><a href="#practice">Practice</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="lecture-head">
+        <div class="wrap">
+            <p class="crumbs"><a href="../index.html">Home</a> / <a href="../index.html#lectures">Lectures</a> / Lecture
+                03</p>
+            <h1>HTML Structure and Content</h1>
+            <p>How an HTML document is built, how to add text, links, images, media, lists and tables, and what HTML5
+                brings.</p>
+            <div class="counter"><span>Lecture 03</span></div>
+        </div>
+    </div>
+
+    <div class="wrap lecture-layout">
+
+        <aside class="toc" aria-label="On this page">
+            <h2>On this page</h2>
+            <ol>
+                <li><a href="#learn">What you will learn</a></li>
+                <li><a href="#content">Lecture content</a></li>
+                <li><a href="#example">Worked example</a></li>
+                <li><a href="#try">Try it yourself</a></li>
+                <li><a href="#practice">Practice</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#check">Quick check</a></li>
+                <li><a href="#tips">Tips and mistakes</a></li>
+            </ol>
+        </aside>
+
+        <main class="lecture-body">
+
+            <section id="learn">
+                <h2>What you will learn</h2>
+                <ul class="learn-list">
+                    <li>The role of markup and the structure of an HTML document.</li>
+                    <li>The difference between a tag, an element and an attribute, and how nesting works.</li>
+                    <li>How to validate HTML.</li>
+                    <li>Headings, paragraphs, text formatting, links, images, media, lists and tables.</li>
+                    <li>The key features of HTML5 and browser support.</li>
+                </ul>
+            </section>
+
+            <section id="content">
+                <h2>Lecture content</h2>
+
+                <h3>HTML and the role of markup</h3>
+                <p>HTML (HyperText Markup Language) is the most basic building block of the Web. It defines the meaning
+                    and structure of content. "Hyper" refers to hyperlinks, which let you jump from one page to another.
+                    Markup means annotating content with tags in angle brackets, usually in opening and closing pairs.
+                    HTML is not a programming language: it does not run logic, it only tells the browser what the
+                    content is.</p>
+                <div class="cards">
+                    <div class="card">
+                        <h3>HTML</h3>
+                        <p>Structure and meaning.</p>
+                    </div>
+                    <div class="card">
+                        <h3>CSS</h3>
+                        <p>Appearance: colour, spacing, layout, typography.</p>
+                    </div>
+                    <div class="card">
+                        <h3>JavaScript</h3>
+                        <p>Behaviour: validation, menus, dynamic updates.</p>
+                    </div>
+                </div>
+
+                <h3>Tag, element and attribute</h3>
+                <div class="cards">
+                    <div class="card">
+                        <h3>Tag</h3>
+                        <p>The markup pieces, such as <code>&lt;p&gt;</code> and <code>&lt;/p&gt;</code>.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Element</h3>
+                        <p>The complete unit, such as <code>&lt;p&gt;Hello&lt;/p&gt;</code>.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Attribute</h3>
+                        <p>Extra information, such as <code>href="..."</code> or <code>class="..."</code>.</p>
+                    </div>
+                </div>
+                <p>Elements nest like a tree. Close them in reverse order: the last one opened is the first one closed.
+                </p>
+                <pre class="example"><span class="s">Correct:</span> &lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt;&lt;/p&gt;
+<span class="a">Wrong:</span>   &lt;p&gt;&lt;strong&gt;Important&lt;/p&gt;&lt;/strong&gt;</pre>
+
+                <h3>Validating your HTML</h3>
+                <p>A validator checks your syntax against W3C standards. Use the W3C Markup Validator or the Nu HTML
+                    Checker: paste your code or upload the file, then fix the errors it reports, such as missing closing
+                    tags or invalid attributes. Validation helps your code work across browsers, catches errors early,
+                    and supports accessibility and SEO.</p>
+
+                <h3>Headings, text and links</h3>
+                <p>Use <code>h1</code> to <code>h6</code> to describe hierarchy, and use CSS to change how large text
+                    looks. Text can also carry meaning:</p>
+                <ul class="chips">
+                    <li><b>&lt;strong&gt;</b> importance</li>
+                    <li><b>&lt;em&gt;</b> emphasis</li>
+                    <li><b>&lt;mark&gt;</b> highlight</li>
+                    <li><b>&lt;del&gt; / &lt;ins&gt;</b> removed / added</li>
+                    <li><b>&lt;br&gt; / &lt;hr&gt;</b> line break / divider</li>
+                </ul>
+                <div class="cards">
+                    <div class="card">
+                        <h3>Absolute link</h3>
+                        <p><code>https://example.com</code> is a full address.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Relative link</h3>
+                        <p><code>about.html</code> points to a file in the same site.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Fragment link</h3>
+                        <p><code>#contact</code> jumps to a place in the same page.</p>
+                    </div>
+                </div>
+
+                <h3>Images, audio and video</h3>
+                <p>An image needs a <code>src</code> (where it comes from) and an <code>alt</code> (a text alternative
+                    for accessibility). You can also set a <code>width</code>. Audio and video use
+                    <code>&lt;audio controls&gt;</code> and <code>&lt;video controls&gt;</code> with a
+                    <code>&lt;source&gt;</code> inside. Captions and transcripts make media more inclusive.</p>
+
+                <h3>Lists</h3>
+                <div class="cards">
+                    <div class="card">
+                        <h3>ul</h3>
+                        <p>Unordered list, with <code>li</code> items.</p>
+                    </div>
+                    <div class="card">
+                        <h3>ol</h3>
+                        <p>Ordered (numbered) list.</p>
+                    </div>
+                    <div class="card">
+                        <h3>dl</h3>
+                        <p>Description list: <code>dt</code> terms with <code>dd</code> definitions, like a glossary.
+                        </p>
+                    </div>
+                </div>
+
+                <h3>Tables</h3>
+                <p>Tables are for data that has relationships. A professional table has clear regions:</p>
+                <ul class="chips">
+                    <li><b>caption</b> what the table is about</li>
+                    <li><b>thead</b> column headers</li>
+                    <li><b>tbody</b> main data</li>
+                    <li><b>tfoot</b> summary or totals</li>
+                </ul>
+                <p>Use <code>colspan</code> to merge cells across columns and <code>rowspan</code> to merge across rows.
+                    The older attributes <code>border</code>, <code>cellpadding</code> and <code>cellspacing</code>
+                    exist, but styling belongs in CSS. Do not use tables just to lay out a page.</p>
+
+                <h3>Key features of HTML5</h3>
+                <div class="cards">
+                    <div class="card">
+                        <h3>Responsive design</h3>
+                        <p>Pages adjust to the screen size. The viewport meta tag makes them scale correctly.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Native multimedia</h3>
+                        <p>Audio and video work without plugins such as Flash.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Canvas</h3>
+                        <p>Draw graphics, animations or games with JavaScript.</p>
+                    </div>
+                    <div class="card">
+                        <h3>New input types</h3>
+                        <p>email, tel and date adapt to the device. A tel field opens a numeric keypad on a phone.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Storage</h3>
+                        <p><code>localStorage</code> keeps data with no expiry. <code>sessionStorage</code> keeps it for
+                            the session.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Offline support</h3>
+                        <p>localStorage and service workers let web apps work without a connection.</p>
+                    </div>
+                </div>
+                <p>HTML5 is widely supported in modern browsers: Chrome, Firefox, Safari and Edge handle semantic
+                    elements, audio, video and canvas well.</p>
+            </section>
+
+            <section id="example">
+                <h2>Worked example: a basic page</h2>
+                <p>Every HTML page follows a predictable structure: a DOCTYPE, then <code>html</code> containing a
+                    <code>head</code> and a <code>body</code>.</p>
+                <pre class="example"><span class="c">&lt;!DOCTYPE html&gt;</span>
+<span class="t">&lt;html</span> <span class="a">lang</span>=<span class="s">"en"</span><span class="t">&gt;</span>
+<span class="t">&lt;head&gt;</span>
+  <span class="t">&lt;meta</span> <span class="a">charset</span>=<span class="s">"UTF-8"</span><span class="t">&gt;</span>
+  <span class="t">&lt;title&gt;</span>My First Page<span class="t">&lt;/title&gt;</span>
+<span class="t">&lt;/head&gt;</span>
+<span class="t">&lt;body&gt;</span>
+  <span class="t">&lt;h1&gt;</span>Web Technologies<span class="t">&lt;/h1&gt;</span>
+  <span class="t">&lt;p&gt;</span>HTML structures web content.<span class="t">&lt;/p&gt;</span>
+<span class="t">&lt;/body&gt;</span>
+<span class="t">&lt;/html&gt;</span></pre>
+            </section>
+
+            <section id="try">
+                <h2>Try it yourself</h2>
+                <p>Edit the code on the left and the result updates on the right. Press Reset to go back to the start.
+                </p>
+                <div class="try">
+                    <div class="try-pane">
+                        <div class="try-bar"><span>Edit the code</span><button type="button" data-reset>Reset</button>
+                        </div><textarea aria-label="Code editor" spellcheck="false">&lt;h1&gt;My Page&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table border=&quot;1&quot;&gt;
+  &lt;caption&gt;Marks&lt;/caption&gt;
+  &lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Marks&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Ali&lt;/td&gt;&lt;td&gt;85&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</textarea>
+                    </div>
+                    <div class="try-pane">
+                        <div class="try-bar"><span>Result</span></div><iframe title="Result" sandbox=""></iframe>
+                    </div>
+                </div>
+            </section>
+            <section id="practice">
+                <h2>Practice</h2>
+                <p>Try each challenge in your own editor first, then check the hint and the answer.</p>
+                <div class="grid-2">
+                    <article class="challenge">
+                        <h3>Challenge: fix the nesting</h3>
+                        <p class="task">This code has a mistake. What is it, and how do you fix it?</p>
+                        <code class="sample">&lt;p&gt;&lt;em&gt;Hello&lt;/p&gt;&lt;/em&gt;</code>
+                        <details>
+                            <summary>Show hint</summary>
+                            <p>Which element was opened last?</p>
+                        </details>
+                        <details class="answer">
+                            <summary>Show answer</summary>
+                            <p>The elements are closed in the wrong order. Write
+                                <code>&lt;p&gt;&lt;em&gt;Hello&lt;/em&gt;&lt;/p&gt;</code>.</p>
+                        </details>
+                    </article>
+
+                    <article class="challenge">
+                        <h3>Challenge: build a marks table</h3>
+                        <p class="task">Make a table with a caption, a header row (Name, Marks), and two student rows:
+                            Ali with 85 and Sara with 91.</p>
+                        <details>
+                            <summary>Show hint</summary>
+                            <p>Use <code>caption</code>, <code>thead</code>, <code>tbody</code>, <code>th</code> and
+                                <code>td</code>.</p>
+                        </details>
+                        <details class="answer">
+                            <summary>Show answer</summary>
+                            <pre class="example" style="margin:0;border-radius:0">&lt;table&gt;
+  &lt;caption&gt;Course marks&lt;/caption&gt;
+  &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Marks&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Ali&lt;/td&gt;&lt;td&gt;85&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Sara&lt;/td&gt;&lt;td&gt;91&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</pre>
+                        </details>
+                    </article>
+                </div>
+            </section>
+
+            <section id="resources">
+                <h2>Resources</h2>
+                <div class="link-cards">
+                    <a class="link-card" href="https://validator.w3.org/" target="_blank" rel="noopener"><strong>W3C
+                            Markup Validator</strong><span>Paste your code and fix the errors it finds.</span></a>
+                    <a class="link-card" href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
+                        rel="noopener"><strong>MDN: HTML</strong><span>Reference for every HTML element.</span></a>
+                    <a class="link-card" href="https://html.spec.whatwg.org/" target="_blank"
+                        rel="noopener"><strong>HTML Living Standard</strong><span>The official, always-current
+                            specification.</span></a>
+                </div>
+            </section>
+
+            <section id="check" class="quiz">
+                <h2>Quick check</h2>
+                <p>Answer in your head first, then open the answer.</p>
+                <details>
+                    <summary>1. What is the difference between a tag and an element?</summary>
+                    <p>A tag is a single markup piece like <code>&lt;p&gt;</code>. An element is the complete unit: the
+                        opening tag, the content and the closing tag.</p>
+                </details>
+                <details>
+                    <summary>2. Why is HTML not a programming language?</summary>
+                    <p>It does not run logic or calculations. It only tells the browser what the content is.</p>
+                </details>
+                <details>
+                    <summary>3. Why does an image need an <code>alt</code> attribute?</summary>
+                    <p>It gives a text alternative, which is important for accessibility.</p>
+                </details>
+                <details>
+                    <summary>4. When should you use a table?</summary>
+                    <p>For data with relationships, such as marks or a timetable, not for page layout.</p>
+                </details>
+            </section>
+
+            <section id="tips">
+                <h2>Tips and common mistakes</h2>
+                <div class="tip">
+                    <b>Common mistake</b>
+                    <p>Choosing a heading level because of its size. Use heading levels for hierarchy and change the
+                        size with CSS.</p>
+                </div>
+                <div class="tip pro">
+                    <b>Pro tip</b>
+                    <p>Run your page through the validator before you submit. Most beginner bugs, like missing closing
+                        tags, show up immediately.</p>
+                </div>
+            </section>
+
+            <nav class="pager" aria-label="Lecture navigation">
+                <div class="prev"><a class="btn btn-light" href="lecture-02.html">Previous: Tiered Web Architecture</a>
+                </div>
+                <div class="mid"><a href="../index.html#lectures">All lectures</a></div>
+                <div class="next"><a class="btn btn-primary" href="lecture-04.html">Next: Semantic HTML and Forms</a>
+                </div>
+            </nav>
+
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="wrap">
+            <div>
+                <h3>Web Technologies</h3>
+                <p>A student-built learning platform for CSC336, made with HTML and CSS only.</p>
+            </div>
+            <div>
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="../index.html#lectures">Lectures</a></li>
+                    <li><a href="../index.html#practice">Practice</a></li>
+                    <li><a href="../index.html#resources">Resources</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Course</h3>
+                <ul>
+                    <li>COMSATS University Islamabad, Vehari Campus</li>
+                    <li>Instructor: Yasmeen Jana</li>
+                </ul>
+            </div>
+            <p class="copy">Designed and built by Amina Maqsood. Web Technologies (CSC336).</p>
+        </div>
+    </footer>
+
+    <script src="../editor.js" defer></script>
+</body>
+
+</html>

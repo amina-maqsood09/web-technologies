@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lecture 02: Tiered Web Architecture | Web Technologies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Sora:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body id="top">
+
+    <header class="nav">
+        <div class="wrap">
+            <a class="brand" href="../index.html">
+                <span class="brand-mark">WT</span>
+                <span class="brand-text">Web Technologies</span>
+            </a>
+            <nav aria-label="Main">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#lectures">Lectures</a></li>
+                    <li><a href="#practice">Practice</a></li>
+                    <li><a href="#video">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="lecture-head">
+        <div class="wrap">
+            <p class="crumbs"><a href="../index.html">Home</a> / <a href="../index.html#lectures">Lectures</a> / Lecture
+                02</p>
+            <h1>Tiered Web Architecture</h1>
+            <p>How a web system splits its work into one-tier, two-tier and three-tier designs, and how to choose
+                between them.</p>
+            <div class="counter">
+                <span>Lecture 02</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrap lecture-layout">
+
+        <aside class="toc" aria-label="On this page">
+            <h2>On this page</h2>
+            <ol>
+                <li><a href="#learn">What you will learn</a></li>
+                <li><a href="#content">Lecture content</a></li>
+                <li><a href="#example">Worked example</a></li>
+                <li><a href="#try">Try it yourself</a></li>
+                <li><a href="#practice">Practice</a></li>
+                <li><a href="#video">Video</a></li>
+                <li><a href="#check">Quick check</a></li>
+                <li><a href="#tips">Tips and mistakes</a></li>
+            </ol>
+        </aside>
+
+        <main class="lecture-body">
+
+            <section id="learn">
+                <h2>What you will learn</h2>
+                <ul class="learn-list">
+                    <li>What separation of concerns means.</li>
+                    <li>The difference between a tier and a layer.</li>
+                    <li>How one-tier, two-tier and three-tier (N-tier) systems work.</li>
+                    <li>How to compare architectures by scalability, maintainability and cost.</li>
+                </ul>
+                <p class="sub">Key idea: separate responsibilities so a change in one part does not unnecessarily break
+                    the others.</p>
+            </section>
+
+            <section id="content">
+                <h2>Lecture content</h2>
+
+                <h3>Tiers vs. layers</h3>
+                <p>These ideas are related, but not identical.</p>
+                <div class="cards">
+                    <div class="card">
+                        <h3>Tier</h3>
+                        <p>Physical or deployment separation. It tells you where components run: the same machine, a
+                            client and a server, or several servers.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Layer</h3>
+                        <p>Logical responsibility. It tells you how the software is organized: presentation, business
+                            logic and data access.</p>
+                    </div>
+                </div>
+
+                <h3>One-tier architecture</h3>
+                <p>A standalone application where the user interface, the logic and the data live together in one
+                    environment.</p>
+                <div class="cards">
+                    <div class="card">
+                        <h3>Examples</h3>
+                        <p>A desktop calculator, a local inventory tool, a single-machine utility.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Pros</h3>
+                        <p>Simple, with low deployment complexity.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Limitation</h3>
+                        <p>A poor fit for large, multi-user web systems.</p>
+                    </div>
+                </div>
+
+                <h3>Two-tier architecture</h3>
+                <p>The client talks directly to a server and database. Requests go one way and responses come back.</p>
+                <div class="cards">
+                    <div class="card">
+                        <h3>Advantages</h3>
+                        <p>A simple mental model, easy for small systems, direct communication.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Limitation</h3>
+                        <p>Business logic and data access can become tightly coupled, and scaling can be harder.</p>
+                    </div>
+                </div>
+
+                <h3>Three-tier / N-tier architecture</h3>
+                <p>The responsibilities are separated so each tier can grow independently.</p>
+                <div class="cards">
+                    <div class="card">
+                        <h3>1. Presentation</h3>
+                        <p>Browser and user interface.</p>
+                    </div>
+                    <div class="card">
+                        <h3>2. Application</h3>
+                        <p>Business logic, API and services.</p>
+                    </div>
+                    <div class="card">
+                        <h3>3. Data</h3>
+                        <p>Database and persistent storage.</p>
+                    </div>
+                </div>
+                <p>This is the common web pattern: browser, then API or services, then database. Each tier can change or
+                    scale with less impact on the others.</p>
+
+                <h3>Choosing an architecture</h3>
+                <p>Every choice is a trade-off between three things.</p>
+                <div class="cards">
+                    <div class="card">
+                        <h3>Scalability</h3>
+                        <p>Can the system handle more users? This matters more as traffic grows.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Maintainability</h3>
+                        <p>Can a team change one part safely? This matters more as the codebase grows.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Cost</h3>
+                        <p>What infrastructure and operating effort can you afford? Balance now against later.</p>
+                    </div>
+                </div>
+                <div class="tip pro"><b>Rule of thumb</b>
+                    <p>Start simple when that is appropriate. Separate concerns when complexity or scale justifies it.
+                    </p>
+                </div>
+
+                <h3>Comparison</h3>
+                <div class="table-wrap scroll">
+                    <table class="compare">
+                        <thead>
+                            <tr>
+                                <th scope="col">Aspect</th>
+                                <th scope="col">One-tier</th>
+                                <th scope="col">Two-tier</th>
+                                <th scope="col">Three / N-tier</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Deployment</td>
+                                <td>One environment</td>
+                                <td>Client + server/data</td>
+                                <td>Separated components</td>
+                            </tr>
+                            <tr>
+                                <td>Communication</td>
+                                <td>Mostly local</td>
+                                <td>Client to server</td>
+                                <td>Presentation, application, data</td>
+                            </tr>
+                            <tr>
+                                <td>Separation</td>
+                                <td>Low</td>
+                                <td>Moderate</td>
+                                <td>Higher</td>
+                            </tr>
+                            <tr>
+                                <td>Small or simple systems</td>
+                                <td>Often suitable</td>
+                                <td>Often suitable</td>
+                                <td>May add complexity</td>
+                            </tr>
+                            <tr>
+                                <td>Large, multi-user web</td>
+                                <td>Poor fit</td>
+                                <td>Can become harder to scale</td>
+                                <td>Separates responsibilities</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="example">
+                <h2>Worked example: a university learning portal</h2>
+                <p>Students browse courses, teachers manage marks, and an admin manages users. Here is how a three-tier
+                    design splits that work.</p>
+                <div class="cards">
+                    <div class="card">
+                        <h3>Presentation</h3>
+                        <p>The browser UI that students, teachers and admins see.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Application</h3>
+                        <p>Login, courses and marks logic.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Data</h3>
+                        <p>The database with users, courses and marks.</p>
+                    </div>
+                </div>
+                <pre
+                    class="example"><span class="t">Browser</span>  ──request──▶  <span class="a">Application / API</span>  ──query──▶  <span class="s">Database</span>
+<span class="t">Browser</span>  ◀─response──  <span class="a">Application / API</span>  ◀─data────  <span class="s">Database</span></pre>
+            </section>
+
+            <section id="try">
+                <h2>Try it yourself</h2>
+                <p>Edit the code on the left and the result updates on the right. Press Reset to go back to the start.
+                </p>
+                <div class="try">
+                    <div class="try-pane">
+                        <div class="try-bar"><span>Edit the code</span><button type="button" data-reset>Reset</button>
+                        </div><textarea aria-label="Code editor" spellcheck="false">&lt;h1&gt;University Portal&lt;/h1&gt;
+&lt;p&gt;Presentation: what you see.&lt;/p&gt;
+&lt;p&gt;Application: the logic.&lt;/p&gt;
+&lt;p&gt;Data: the database.&lt;/p&gt;</textarea>
+                    </div>
+                    <div class="try-pane">
+                        <div class="try-bar"><span>Result</span></div><iframe title="Result" sandbox=""></iframe>
+                    </div>
+                </div>
+            </section>
+            <section id="practice">
+                <h2>Practice</h2>
+                <p>Decide first, then check the hint and the answer.</p>
+                <div class="grid-2">
+                    <article class="challenge">
+                        <h3>Challenge: name the architecture</h3>
+                        <p class="task">Which architecture fits each system? (a) A desktop calculator. (b) A browser
+                            that talks to an API, which talks to a database. (c) A small client app that talks straight
+                            to a database server.</p>
+                        <details>
+                            <summary>Show hint</summary>
+                            <p>Count how many separate parts exist, and whether anything sits between the client and the
+                                data.</p>
+                        </details>
+                        <details class="answer">
+                            <summary>Show answer</summary>
+                            <p>(a) One-tier, (b) three-tier, (c) two-tier.</p>
+                        </details>
+                    </article>
+
+                    <article class="challenge">
+                        <h3>Challenge: tier or layer?</h3>
+                        <p class="task">Is each statement about a tier or a layer? (a) The web server and the database
+                            run on different machines. (b) The code is organized into presentation, business logic and
+                            data access.</p>
+                        <details>
+                            <summary>Show hint</summary>
+                            <p>Tier is about where things run. Layer is about how responsibilities are organized.</p>
+                        </details>
+                        <details class="answer">
+                            <summary>Show answer</summary>
+                            <p>(a) Tier, because it describes physical or deployment separation. (b) Layer, because it
+                                describes logical responsibility.</p>
+                        </details>
+                    </article>
+                </div>
+            </section>
+
+            <section id="video">
+                <h2>Watch and visualize</h2>
+                <div class="video-card">
+                    <a class="video-thumb"
+                        href="https://www.youtube.com/watch?v=aRUhd1Wd3Sw&amp;list=PLDzeHZWIZsTo0wSBcg4-NMIbC0L8evLrD&amp;index=2"
+                        target="_blank" rel="noopener" aria-label="Watch How the Internet Works on YouTube">
+                        <span class="play"></span>
+                    </a>
+                    <div class="video-info">
+                        <h3>How the Internet Works</h3>
+                        <p>A recap that shows the client and server parts that tiered architecture builds on.</p>
+                        <a class="btn btn-primary"
+                            href="https://www.youtube.com/watch?v=aRUhd1Wd3Sw&amp;list=PLDzeHZWIZsTo0wSBcg4-NMIbC0L8evLrD&amp;index=2"
+                            target="_blank" rel="noopener">Watch on YouTube</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="check" class="quiz">
+                <h2>Quick check</h2>
+                <p>Answer in your head first, then open the answer.</p>
+                <details>
+                    <summary>1. What is the difference between a tier and a layer?</summary>
+                    <p>A tier is physical or deployment separation. A layer is logical separation of responsibilities.
+                    </p>
+                </details>
+                <details>
+                    <summary>2. Why is one-tier a poor fit for a large multi-user web system?</summary>
+                    <p>The interface, logic and data are tightly coupled in one environment, so it does not suit many
+                        users on the web.</p>
+                </details>
+                <details>
+                    <summary>3. Name the three tiers of a common web application.</summary>
+                    <p>Presentation (browser/UI), application (business logic/API) and data (database).</p>
+                </details>
+                <details>
+                    <summary>4. Which three trade-offs help you choose an architecture?</summary>
+                    <p>Scalability, maintainability and cost.</p>
+                </details>
+            </section>
+
+            <section id="tips">
+                <h2>Tips and common mistakes</h2>
+                <div class="tip">
+                    <b>Common mistake</b>
+                    <p>Using the words tier and layer as if they mean the same thing. One is about where it runs, the
+                        other is about how it is organized.</p>
+                </div>
+                <div class="tip">
+                    <b>Common mistake</b>
+                    <p>Assuming three-tier is always best. For a small, simple system it may only add complexity.</p>
+                </div>
+                <div class="tip pro">
+                    <b>Pro tip</b>
+                    <p>When you draw a system, label each box as presentation, application or data. If a box does two
+                        jobs, that is a sign to separate it.</p>
+                </div>
+            </section>
+
+            <nav class="pager" aria-label="Lecture navigation">
+                <div class="prev"><a class="btn btn-light" href="lecture-01.html">Previous: How the Web Works</a></div>
+                <div class="mid"><a href="../index.html#lectures">All lectures</a></div>
+                <div class="next"><a class="btn btn-primary" href="lecture-03.html">Next: HTML Structure and Content</a>
+                </div>
+            </nav>
+
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="wrap">
+            <div>
+                <h3>Web Technologies</h3>
+                <p>A student-built learning platform for CSC336, made with HTML and CSS only.</p>
+            </div>
+            <div>
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="../index.html#lectures">Lectures</a></li>
+                    <li><a href="../index.html#practice">Practice</a></li>
+                    <li><a href="../index.html#resources">Resources</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Course</h3>
+                <ul>
+                    <li>COMSATS University Islamabad, Vehari Campus</li>
+                    <li>Instructor: Yasmeen Jana</li>
+                </ul>
+            </div>
+            <p class="copy">Designed and built by Amina Maqsood. Web Technologies (CSC336).</p>
+        </div>
+    </footer>
+
+    <script src="../editor.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lecture 04: Semantic HTML and Forms | Web Technologies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Sora:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body id="top">
+
+    <header class="nav">
+        <div class="wrap">
+            <a class="brand" href="../index.html">
+                <span class="brand-mark">WT</span>
+                <span class="brand-text">Web Technologies</span>
+            </a>
+            <nav aria-label="Main">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#lectures">Lectures</a></li>
+                    <li><a href="#practice">Practice</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="lecture-head">
+        <div class="wrap">
+            <p class="crumbs"><a href="../index.html">Home</a> / <a href="../index.html#lectures">Lectures</a> / Lecture
+                04</p>
+            <h1>Semantic HTML and Forms</h1>
+            <p>How to give a page meaning with block, inline and semantic elements, and how to collect and validate user
+                input with forms.</p>
+            <div class="counter"><span>Lecture 04</span></div>
+        </div>
+    </div>
+
+    <div class="wrap lecture-layout">
+
+        <aside class="toc" aria-label="On this page">
+            <h2>On this page</h2>
+            <ol>
+                <li><a href="#learn">What you will learn</a></li>
+                <li><a href="#content">Lecture content</a></li>
+                <li><a href="#example">Worked example</a></li>
+                <li><a href="#try">Try it yourself</a></li>
+                <li><a href="#practice">Practice</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#check">Quick check</a></li>
+                <li><a href="#tips">Tips and mistakes</a></li>
+            </ol>
+        </aside>
+
+        <main class="lecture-body">
+
+            <section id="learn">
+                <h2>What you will learn</h2>
+                <ul class="learn-list">
+                    <li>The difference between block-level and inline elements, and what div and span are for.</li>
+                    <li>Why layout belongs to div and CSS, not tables.</li>
+                    <li>The semantic elements: header, nav, main, section, article, aside and footer.</li>
+                    <li>How forms work: action, method, label, input types, select, textarea, button and fieldset.</li>
+                    <li>HTML5 validation with required, pattern, min and max.</li>
+                    <li>Why accessibility matters and why the server must always validate too.</li>
+                </ul>
+            </section>
+
+            <section id="content">
+                <h2>Lecture content</h2>
+
+                <h3>Block and inline elements</h3>
+                <div class="table-wrap scroll">
+                    <table class="compare">
+                        <thead>
+                            <tr>
+                                <th scope="col">Block elements</th>
+                                <th scope="col">Inline elements</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Start on a new line</td>
+                                <td>Stay on the same line</td>
+                            </tr>
+                            <tr>
+                                <td>Take the full width available</td>
+                                <td>Take only the space they need</td>
+                            </tr>
+                            <tr>
+                                <td>Can contain block or inline elements</td>
+                                <td>Can only contain inline elements</td>
+                            </tr>
+                            <tr>
+                                <td>Examples: div, p, h1, ul, table</td>
+                                <td>Examples: span, a, img, strong, em</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><code>div</code> and <code>span</code> are generic containers. Use <code>div</code> for sections of
+                    block content and <code>span</code> for a small piece of text inside other content. Neither says
+                    anything about the meaning of its content.</p>
+
+                <h3>Layout: tables or div?</h3>
+                <p>Early web pages used tables to divide the page into header, content and footer. Today
+                    <code>div</code> is the preferred way to build page sections, because it is more flexible, easier to
+                    style with CSS and works better on different screen sizes. Reserve tables for real tabular data. You
+                    can also nest divs, for example a container holding a left and a right section.</p>
+
+                <h3>Semantic elements</h3>
+                <p>Semantic elements clearly describe their content, while div and span tell the browser nothing. Using
+                    them improves accessibility, maintainability and machine-readable structure.</p>
+                <div class="cards">
+                    <div class="card">
+                        <h3>header</h3>
+                        <p>Intro or branding.</p>
+                    </div>
+                    <div class="card">
+                        <h3>nav</h3>
+                        <p>Navigation links.</p>
+                    </div>
+                    <div class="card">
+                        <h3>main</h3>
+                        <p>The dominant content of the page.</p>
+                    </div>
+                    <div class="card">
+                        <h3>section</h3>
+                        <p>A thematic group of content.</p>
+                    </div>
+                    <div class="card">
+                        <h3>article</h3>
+                        <p>A self-contained item.</p>
+                    </div>
+                    <div class="card">
+                        <h3>aside</h3>
+                        <p>Related side content.</p>
+                    </div>
+                    <div class="card">
+                        <h3>footer</h3>
+                        <p>Ending information.</p>
+                    </div>
+                </div>
+                <div class="tip pro"><b>Memory trick</b>
+                    <p>Think of a newspaper: header, menu, main story, side notes, footer.</p>
+                </div>
+
+                <h3>Forms</h3>
+                <p>A form turns a page into an interaction. The <code>form</code> element holds every control. Two
+                    attributes decide where the data goes:</p>
+                <div class="cards">
+                    <div class="card">
+                        <h3>action</h3>
+                        <p>The URL that receives the submission. If you leave it out, the current page is used.</p>
+                    </div>
+                    <div class="card">
+                        <h3>method</h3>
+                        <p><strong>GET</strong> sends data in the URL and suits small data. <strong>POST</strong> sends
+                            it in the request body and suits larger or private data.</p>
+                    </div>
+                </div>
+                <p>When the user submits, the browser sends the data using each field's <code>name</code> and
+                    <code>value</code>, so every field needs a name. A <code>label</code> connects text to a control:
+                    clicking the label focuses the field.</p>
+
+                <h3>Form controls</h3>
+                <ul class="chips">
+                    <li><b>text</b> name</li>
+                    <li><b>email</b> email address</li>
+                    <li><b>password</b> hidden text</li>
+                    <li><b>number</b> marks, quantity</li>
+                    <li><b>date</b> date of birth</li>
+                    <li><b>checkbox</b> several choices</li>
+                    <li><b>radio</b> one choice</li>
+                    <li><b>file</b> a document</li>
+                </ul>
+                <p>Not everything is a text box: <code>select</code> makes a dropdown, <code>textarea</code> takes
+                    multi-line input, and <code>button</code> submits or resets. Use <code>fieldset</code> with
+                    <code>legend</code> to group related controls. Radio buttons with the same <code>name</code> form
+                    one group. <code>placeholder</code> shows a hint that disappears when the user types, and
+                    <code>value</code> sets a default.</p>
+
+                <h3>HTML5 validation</h3>
+                <div class="cards">
+                    <div class="card">
+                        <h3>required</h3>
+                        <p>The field cannot be empty.</p>
+                    </div>
+                    <div class="card">
+                        <h3>pattern</h3>
+                        <p>The value must match a format, written as a regular expression.</p>
+                    </div>
+                    <div class="card">
+                        <h3>min and max</h3>
+                        <p>Set the allowed range of a number, such as marks from 0 to 100.</p>
+                    </div>
+                </div>
+                <div class="tip pro"><b>Golden rule</b>
+                    <p>The client is for convenience, and the server is the authority. Browser checks give fast
+                        feedback, but the server must still re-validate everything.</p>
+                </div>
+
+                <h3>Accessibility</h3>
+                <p>Connect each <code>label</code> to its control, group related controls with <code>fieldset</code> and
+                    <code>legend</code>, write meaningful <code>alt</code> text, and give clear instructions and error
+                    messages. Accessibility is part of professional web development, not an extra feature.</p>
+
+                <h3>Coding-style conventions</h3>
+                <ul class="learn-list">
+                    <li>Include both a start tag and an end tag for every container element, even where it is legal to
+                        omit one.</li>
+                    <li>Use lowercase for tag names and attribute names.</li>
+                    <li>Quote attribute values, with no spaces around the equals sign.</li>
+                    <li>Use lowercase for attribute values unless there is a reason not to, such as a person's name.
+                    </li>
+                </ul>
+            </section>
+
+            <section id="example">
+                <h2>Worked example: a student registration form</h2>
+                <pre class="example"><span class="t">&lt;form</span> <span class="a">action</span>=<span class="s">"/register"</span> <span class="a">method</span>=<span class="s">"post"</span><span class="t">&gt;</span>
+  <span class="t">&lt;label</span> <span class="a">for</span>=<span class="s">"reg"</span><span class="t">&gt;</span>Registration no.<span class="t">&lt;/label&gt;</span>
+  <span class="t">&lt;input</span> <span class="a">id</span>=<span class="s">"reg"</span> <span class="a">name</span>=<span class="s">"reg"</span>
+         <span class="a">pattern</span>=<span class="s">"FA[0-9]{2}-BSE-[0-9]{3}"</span> <span class="a">required</span><span class="t">&gt;</span>
+
+  <span class="t">&lt;label</span> <span class="a">for</span>=<span class="s">"marks"</span><span class="t">&gt;</span>Marks<span class="t">&lt;/label&gt;</span>
+  <span class="t">&lt;input</span> <span class="a">type</span>=<span class="s">"number"</span> <span class="a">id</span>=<span class="s">"marks"</span> <span class="a">name</span>=<span class="s">"marks"</span>
+         <span class="a">min</span>=<span class="s">"0"</span> <span class="a">max</span>=<span class="s">"100"</span><span class="t">&gt;</span>
+
+  <span class="t">&lt;button</span> <span class="a">type</span>=<span class="s">"submit"</span><span class="t">&gt;</span>Register<span class="t">&lt;/button&gt;</span>
+<span class="t">&lt;/form&gt;</span></pre>
+                <p>The pattern accepts FA24-BSE-019 but rejects FA24-BSE-19, because it needs exactly three digits at
+                    the end.</p>
+            </section>
+
+            <section id="try">
+                <h2>Try it yourself</h2>
+                <p>Edit the code on the left and the result updates on the right. Press Reset to go back to the start.
+                </p>
+                <div class="try">
+                    <div class="try-pane">
+                        <div class="try-bar"><span>Edit the code</span><button type="button" data-reset>Reset</button>
+                        </div><textarea aria-label="Code editor" spellcheck="false">&lt;form&gt;
+  &lt;label for=&quot;reg&quot;&gt;Registration no.&lt;/label&gt;
+  &lt;input id=&quot;reg&quot; name=&quot;reg&quot; required&gt;
+  &lt;label for=&quot;marks&quot;&gt;Marks (0-100)&lt;/label&gt;
+  &lt;input type=&quot;number&quot; id=&quot;marks&quot; min=&quot;0&quot; max=&quot;100&quot;&gt;
+  &lt;button type=&quot;submit&quot;&gt;Register&lt;/button&gt;
+&lt;/form&gt;</textarea>
+                    </div>
+                    <div class="try-pane">
+                        <div class="try-bar"><span>Result</span></div><iframe title="Result" sandbox=""></iframe>
+                    </div>
+                </div>
+            </section>
+            <section id="practice">
+                <h2>Practice</h2>
+                <div class="grid-2">
+                    <article class="challenge">
+                        <h3>Challenge: build the registration page</h3>
+                        <p class="task">Build it without copying. Work through the five steps, then test with valid and
+                            invalid input.</p>
+                        <ul class="learn-list">
+                            <li>Structure: header, nav, main and footer.</li>
+                            <li>Fields: name, registration number, email and age.</li>
+                            <li>Choices: program, gender and skills.</li>
+                            <li>Rules: required, pattern, and min/max.</li>
+                            <li>Test: try one valid and one invalid entry.</li>
+                        </ul>
+                        <details>
+                            <summary>Show hint</summary>
+                            <p>Use radio buttons for a single choice (same <code>name</code>) and checkboxes for skills.
+                                Group them with <code>fieldset</code> and <code>legend</code>.</p>
+                        </details>
+                        <details class="answer">
+                            <summary>Bonus</summary>
+                            <p>Add a confirmation message, and improve accessibility by checking that every control has
+                                a matching label.</p>
+                        </details>
+                    </article>
+
+                    <article class="challenge">
+                        <h3>Challenge: pick the element</h3>
+                        <p class="task">Which semantic element should hold (a) the site menu, (b) the dominant content
+                            of the page, (c) the contact details at the end?</p>
+                        <details>
+                            <summary>Show hint</summary>
+                            <p>Think of the newspaper: header, menu, main story, side notes, footer.</p>
+                        </details>
+                        <details class="answer">
+                            <summary>Show answer</summary>
+                            <p>(a) <code>nav</code>, (b) <code>main</code>, (c) <code>footer</code>.</p>
+                        </details>
+                    </article>
+                </div>
+            </section>
+
+            <section id="resources">
+                <h2>Resources</h2>
+                <div class="link-cards">
+                    <a class="link-card" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form"
+                        target="_blank" rel="noopener"><strong>MDN: the form element</strong><span>Every attribute and
+                            example for forms.</span></a>
+                    <a class="link-card" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"
+                        target="_blank" rel="noopener"><strong>MDN: the input element</strong><span>All input types and
+                            validation attributes.</span></a>
+                    <a class="link-card" href="https://validator.w3.org/" target="_blank" rel="noopener"><strong>W3C
+                            Markup Validator</strong><span>Check your forms and structure.</span></a>
+                </div>
+            </section>
+
+            <section id="check" class="quiz">
+                <h2>Quick check</h2>
+                <p>Answer in your head first, then open the answer.</p>
+                <details>
+                    <summary>1. Name one difference between block and inline elements.</summary>
+                    <p>Block elements start on a new line and take the full width. Inline elements stay on the same line
+                        and take only the space they need.</p>
+                </details>
+                <details>
+                    <summary>2. Why use semantic elements instead of only div?</summary>
+                    <p>They describe their content, which helps accessibility, maintainability and machine-readable
+                        structure.</p>
+                </details>
+                <details>
+                    <summary>3. What decides where form data is sent, and how?</summary>
+                    <p>The <code>action</code> attribute gives the destination and the <code>method</code> attribute
+                        gives the HTTP method, GET or POST.</p>
+                </details>
+                <details>
+                    <summary>4. Is browser validation enough?</summary>
+                    <p>No. It gives fast feedback, but the server must validate again.</p>
+                </details>
+            </section>
+
+            <section id="tips">
+                <h2>Tips and common mistakes</h2>
+                <div class="tip">
+                    <b>Common mistake</b>
+                    <p>Using tables to lay out the page. Tables are only for data, and layout belongs to div and CSS.
+                    </p>
+                </div>
+                <div class="tip">
+                    <b>Common mistake</b>
+                    <p>Forgetting the <code>name</code> attribute on an input. Without it, the field's data is not sent
+                        on submission.</p>
+                </div>
+                <div class="tip pro">
+                    <b>Pro tip</b>
+                    <p>Always write <code>label for="id"</code> to match the input's <code>id</code>. It helps screen
+                        readers, and users can click the label to focus the field.</p>
+                </div>
+            </section>
+
+            <nav class="pager" aria-label="Lecture navigation">
+                <div class="prev"><a class="btn btn-light" href="lecture-03.html">Previous: HTML Structure and
+                        Content</a></div>
+                <div class="mid"><a href="../index.html#lectures">All lectures</a></div>
+                <div class="next"><a class="btn btn-primary" href="lecture-05.html">Next: CSS Basics</a></div>
+            </nav>
+
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="wrap">
+            <div>
+                <h3>Web Technologies</h3>
+                <p>A student-built learning platform for CSC336, made with HTML and CSS only.</p>
+            </div>
+            <div>
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="../index.html#lectures">Lectures</a></li>
+                    <li><a href="../index.html#practice">Practice</a></li>
+                    <li><a href="../index.html#resources">Resources</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Course</h3>
+                <ul>
+                    <li>COMSATS University Islamabad, Vehari Campus</li>
+                    <li>Instructor: Yasmeen Jana</li>
+                </ul>
+            </div>
+            <p class="copy">Designed and built by Amina Maqsood. Web Technologies (CSC336).</p>
+        </div>
+    </footer>
+
+    <script src="../editor.js" defer></script>
+</body>
+
+</html>
