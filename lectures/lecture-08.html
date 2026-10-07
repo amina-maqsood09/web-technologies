@@ -189,6 +189,23 @@
             <div class="gradient8">A gradient box with rounded corners (turns red on small screens).</div>
             <div class="pulse8"></div>
         </div>
+        <h2>Try It Yourself</h2>
+        <p>Hover over the button, then change the color or the speed.</p>
+        <div class="try">
+            <textarea spellcheck="false"><style>
+  button {
+    padding: 10px 20px;
+    background: steelblue;
+    color: white;
+    border: 0;
+    transition: background 0.5s;
+  }
+  button:hover { background: darkorange; }
+</style>
+<button>Hover me</button></textarea>
+            <iframe title="Result"></iframe>
+            <button type="button" data-reset>Reset</button>
+        </div>
     </main>
 
     <footer>
@@ -196,6 +213,7 @@
         <p>CSC336 Web Technologies | COMSATS University Islamabad, Vehari Campus</p>
     </footer>
 
+    <script src="../editor.js"></script>
 </body>
 
 </html>

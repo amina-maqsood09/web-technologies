@@ -209,3 +209,47 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+/* ===== Try It Yourself editor ===== */
+.try {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.try textarea {
+    width: 100%;
+    min-height: 180px;
+    font-family: monospace;
+    font-size: 14px;
+    padding: 10px;
+    border: 1px solid var(--brand);
+    border-radius: 8px;
+    resize: vertical;
+}
+
+.try iframe {
+    width: 100%;
+    min-height: 180px;
+    border: 1px solid var(--brand);
+    border-radius: 8px;
+    background: white;
+}
+
+.try button {
+    grid-column: 1 / -1;
+    justify-self: start;
+    background: var(--brand);
+    color: white;
+    border: 0;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    .try {
+        grid-template-columns: 1fr;
+    }
+}

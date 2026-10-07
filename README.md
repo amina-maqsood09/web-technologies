@@ -1,6 +1,6 @@
 # Web Technologies (CSC336)
 
-A website for the Web Technologies course, built with **HTML and CSS only**. The homepage lists all eight lectures in a table, and each lecture has its own page with a summary, topics covered, a table, example code and its output.
+A website for the Web Technologies course, built with **HTML and CSS**, plus one small JavaScript file for the live "Try it yourself" editor. The homepage lists all eight lectures in a table, and each lecture has its own page with a summary, topics covered, a table, example code and its output.
 
 - **Student:** Amina Maqsood
 - **Registration no.:** FA24-BSE-019
@@ -30,6 +30,7 @@ https://amina-maqsood09.github.io/web-technologies/
 web-technologies/
 ├── index.html
 ├── style.css
+├── editor.js
 └── lectures/
     ├── lecture-01.html
     └── ... lecture-08.html

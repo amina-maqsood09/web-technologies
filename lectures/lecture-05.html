@@ -169,6 +169,20 @@
                 <p class="tip">Generated with ::before.</p>
             </div>
         </div>
+        <h2>Try It Yourself</h2>
+        <p>Change the colors in the CSS rules and see which selector wins.</p>
+        <div class="try">
+            <textarea spellcheck="false"><style>
+  p { color: gray; }
+  .note { color: blue; }
+  #main { color: red; }
+</style>
+<p>Element selector (gray)</p>
+<p class="note">Class selector (blue)</p>
+<p class="note" id="main">ID selector (red wins)</p></textarea>
+            <iframe title="Result"></iframe>
+            <button type="button" data-reset>Reset</button>
+        </div>
     </main>
 
     <footer>
@@ -177,6 +191,7 @@
         <p>CSC336 Web Technologies | COMSATS University Islamabad, Vehari Campus</p>
     </footer>
 
+    <script src="../editor.js"></script>
 </body>
 
 </html>

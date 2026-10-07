@@ -169,6 +169,18 @@
                 <p>This text wraps next to the floated square. The clearfix keeps the parent tall enough.</p>
             </div>
         </div>
+        <h2>Try It Yourself</h2>
+        <p>Change top, left or position to move the small box.</p>
+        <div class="try">
+            <textarea spellcheck="false"><style>
+  .parent { position: relative; height: 150px; background: #eee; }
+  .child { position: absolute; top: 20px; left: 40px;
+           width: 80px; height: 80px; background: tomato; z-index: 2; }
+</style>
+<div class="parent"><div class="child"></div></div></textarea>
+            <iframe title="Result"></iframe>
+            <button type="button" data-reset>Reset</button>
+        </div>
     </main>
 
     <footer>
@@ -177,6 +189,7 @@
         <p>CSC336 Web Technologies | COMSATS University Islamabad, Vehari Campus</p>
     </footer>
 
+    <script src="../editor.js"></script>
 </body>
 
 </html>
