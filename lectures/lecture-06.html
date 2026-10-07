@@ -3,276 +3,156 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lecture 06: Box Model and Display | Web Technologies</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Sora:wght@600;700&display=swap"
-        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 6 | Web Technologies</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 
-<body id="top">
+<body>
 
-    <header class="nav">
-        <div class="wrap">
-            <a class="brand" href="../index.html"><span class="brand-mark">WT</span><span class="brand-text">Web
-                    Technologies</span></a>
-            <nav aria-label="Main">
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../index.html#lectures">Lectures</a></li>
-                    <li><a href="#practice">Practice</a></li>
-                    <li><a href="#resources">Resources</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header>
+        <h1>Lecture 6: CSS Box Model, Display and Spacing</h1>
+        <p>The box model, sizing, margins, display and shadows</p>
     </header>
 
-    <div class="lecture-head">
-        <div class="wrap">
-            <p class="crumbs"><a href="../index.html">Home</a> / <a href="../index.html#lectures">Lectures</a> / Lecture
-                06</p>
-            <h1>Box Model and Display</h1>
-            <p>Every element is a box. Learn its parts, how its size is calculated, how margins collapse, and how
-                display and shadows change its look.</p>
-            <div class="counter"><span>Lecture 06</span></div>
-        </div>
-    </div>
+    <main>
+        <h2>Summary</h2>
+        <p>This lecture explains that every element is a box. You will learn the parts of the box model, how to write
+            padding, border and margin shorthand, how total width is calculated, how margins collapse, and how display
+            and box-shadow change an element.</p>
 
-    <div class="wrap lecture-layout">
-        <aside class="toc" aria-label="On this page">
-            <h2>On this page</h2>
-            <ol>
-                <li><a href="#learn">What you will learn</a></li>
-                <li><a href="#content">Lecture content</a></li>
-                <li><a href="#example">Worked example</a></li>
-                <li><a href="#try">Try it yourself</a></li>
-                <li><a href="#practice">Practice</a></li>
-                <li><a href="#resources">Resources</a></li>
-                <li><a href="#check">Quick check</a></li>
-                <li><a href="#tips">Tips and mistakes</a></li>
-            </ol>
-        </aside>
+        <h2>Topics Covered</h2>
+        <ul>
+            <li><strong>The box model</strong>
+                <ul>
+                    <li>Content, padding, border and margin</li>
+                </ul>
+            </li>
+            <li><strong>Shorthand values</strong>
+                <ul>
+                    <li>One value: all sides</li>
+                    <li>Two values: top and bottom, then left and right</li>
+                    <li>Four values: top, right, bottom, left</li>
+                </ul>
+            </li>
+            <li><strong>Sizing</strong>
+                <ul>
+                    <li>content-box adds padding and border to the width</li>
+                    <li>border-box includes padding and border in the width</li>
+                    <li>min-width, max-width, min-height and max-height</li>
+                    <li>overflow: visible, hidden, scroll or auto</li>
+                </ul>
+            </li>
+            <li><strong>Margin collapsing</strong>
+                <ul>
+                    <li>Adjacent vertical margins collapse</li>
+                    <li>The larger margin wins</li>
+                </ul>
+            </li>
+            <li><strong>The display property</strong>
+                <ul>
+                    <li>block, inline, inline-block and none</li>
+                </ul>
+            </li>
+            <li><strong>Box shadows</strong>
+                <ul>
+                    <li>box-shadow: x-offset y-offset blur colour</li>
+                </ul>
+            </li>
+        </ul>
 
-        <main class="lecture-body">
-            <section id="learn">
-                <h2>What you will learn</h2>
-                <ul class="learn-list">
-                    <li>The four parts of the CSS box model.</li>
-                    <li>Padding, border and margin, including shorthand values.</li>
-                    <li>How to calculate an element's total width, and what box-sizing changes.</li>
-                    <li>What margin collapsing is.</li>
-                    <li>Width, height, overflow and the display property.</li>
-                    <li>Box shadows.</li>
-                </ul>
-            </section>
-            <section id="content">
-                <h2>Lecture content</h2>
-                <h3>The box model</h3>
-                <div class="cards">
-                    <div class="card">
-                        <h3>Content</h3>
-                        <p>The text or image itself.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Padding</h3>
-                        <p>Space inside the box, around the content.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Border</h3>
-                        <p>The boundary around the padding.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Margin</h3>
-                        <p>Space outside the box, between elements.</p>
-                    </div>
-                </div>
-                <h3>Shorthand values</h3>
-                <ul class="chips">
-                    <li><b>padding: 10px</b> all four sides</li>
-                    <li><b>padding: 10px 20px</b> top and bottom, then left and right</li>
-                    <li><b>padding: 5px 10px 15px 20px</b> top, right, bottom, left (clockwise)</li>
-                </ul>
-                <p>Margin and border follow the same idea.</p>
-                <h3>Calculating total width and box-sizing</h3>
-                <p>With <code>content-box</code> (the default), width covers only the content, so padding and border are
-                    added: <code>width + left and right padding + left and right border</code>. With
-                    <code>border-box</code>, the width already includes padding and border, which makes sizes easier to
-                    predict.</p>
-                <h3>Margin collapsing</h3>
-                <p>When the vertical margins of adjacent block elements touch, they collapse into one margin, and the
-                    larger value wins. This can also happen between a parent and its first or last child.</p>
-                <h3>Margin vs padding</h3>
-                <div class="cards">
-                    <div class="card">
-                        <h3>Padding</h3>
-                        <p>Inside the border. The background shows through it.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Margin</h3>
-                        <p>Outside the border. It separates the element from its neighbours.</p>
-                    </div>
-                </div>
-                <h3>Width, height and overflow</h3>
-                <p>Use <code>min-width</code>, <code>max-width</code>, <code>min-height</code> and
-                    <code>max-height</code> to set limits. When content is bigger than its box, <code>overflow</code>
-                    decides what happens: <code>visible</code>, <code>hidden</code>, <code>scroll</code> or
-                    <code>auto</code>.</p>
-                <h3>The display property</h3>
-                <ul class="chips">
-                    <li><b>block</b> new line, full width</li>
-                    <li><b>inline</b> same line, width and height ignored</li>
-                    <li><b>inline-block</b> same line, but accepts width and height</li>
-                    <li><b>none</b> removed from the page</li>
-                </ul>
-                <h3>Box shadows</h3>
-                <p>The syntax is <code>box-shadow: x-offset y-offset blur colour</code>. A soft shadow can lift a card
-                    off the page.</p>
-            </section>
-            <section id="example">
-                <h2>Worked example</h2>
-                <p>A card that uses border-box, padding, a border, an automatic margin and a soft shadow.</p>
-                <pre class="example">.card {
-  box-sizing: border-box;
-  width: 300px;
-  padding: 20px;
-  border: 2px solid #3b6bff;
-  margin: 16px auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}</pre>
-            </section>
-            <section id="try">
-                <h2>Try it yourself</h2>
-                <p>Edit the code on the left and the result updates on the right. Press Reset to go back to the start.
-                </p>
-                <div class="try">
-                    <div class="try-pane">
-                        <div class="try-bar"><span>Edit the code</span><button type="button" data-reset>Reset</button>
-                        </div><textarea aria-label="Code editor" spellcheck="false">&lt;style&gt;
-  .box {
-    width: 200px;
+        <table>
+            <caption>Parts of the Box Model</caption>
+            <thead>
+                <tr>
+                    <th>Part</th>
+                    <th>What it is</th>
+                    <th>Property</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Content</td>
+                    <td>The text or image itself</td>
+                    <td>width, height</td>
+                </tr>
+                <tr>
+                    <td>Padding</td>
+                    <td>Space inside the border</td>
+                    <td>padding</td>
+                </tr>
+                <tr>
+                    <td>Border</td>
+                    <td>The line around the padding</td>
+                    <td>border</td>
+                </tr>
+                <tr>
+                    <td>Margin</td>
+                    <td>Space outside the border</td>
+                    <td>margin</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Example Code</h2>
+        <p>A box using border-box, padding, a border, a margin and a shadow, followed by three inline-block items.</p>
+        <pre><code>&lt;style&gt;
+  .box6 {
+    box-sizing: border-box;
+    width: 260px;
     padding: 20px;
-    border: 4px solid #3b6bff;
+    border: 4px solid #1f4e8c;
     margin: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,.2);
+    background-color: #e8f0fb;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+  .tag6 {
+    display: inline-block;
+    width: 90px;
+    padding: 8px;
+    margin: 4px;
+    background-color: #1f4e8c;
+    color: white;
+    text-align: center;
   }
 &lt;/style&gt;
-&lt;div class=&quot;box&quot;&gt;A box&lt;/div&gt;</textarea>
-                    </div>
-                    <div class="try-pane">
-                        <div class="try-bar"><span>Result</span></div><iframe title="Result" sandbox=""></iframe>
-                    </div>
-                </div>
-            </section>
-            <section id="practice">
-                <h2>Practice</h2>
-                <p>Try each challenge in your own editor first, then check the hint and the answer.</p>
-                <div class="grid-2">
-                    <article class="challenge">
-                        <h3>Challenge: total width</h3>
-                        <p class="task">A box uses content-box with width 200px, padding 10px on each side and a 5px
-                            border. What is its total width, not counting margins?</p>
-                        <details>
-                            <summary>Show hint</summary>
-                            <p>Add padding and border on both sides.</p>
-                        </details>
-                        <details class="answer">
-                            <summary>Show answer</summary>
-                            <p>200 + 20 + 10 = 230px.</p>
-                        </details>
-                    </article>
-                    <article class="challenge">
-                        <h3>Challenge: margin collapse</h3>
-                        <p class="task">One paragraph has margin-bottom 30px and the next has margin-top 20px. How big
-                            is the gap between them?</p>
-                        <details>
-                            <summary>Show hint</summary>
-                            <p>Remember which margin wins.</p>
-                        </details>
-                        <details class="answer">
-                            <summary>Show answer</summary>
-                            <p>30px. The larger vertical margin wins, so the margins do not add up.</p>
-                        </details>
-                    </article>
-                </div>
-            </section>
-            <section id="resources">
-                <h2>Resources</h2>
-                <div class="link-cards"><a class="link-card"
-                        href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model" target="_blank"
-                        rel="noopener"><strong>MDN: the box model</strong><span>Parts of the box, with
-                            diagrams.</span></a><a class="link-card"
-                        href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin" target="_blank"
-                        rel="noopener"><strong>MDN: margin</strong><span>Shorthand and margin collapsing.</span></a><a
-                        class="link-card" href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"
-                        target="_blank" rel="noopener"><strong>MDN: display</strong><span>All display values.</span></a>
-                </div>
-            </section>
-            <section id="check" class="quiz">
-                <h2>Quick check</h2>
-                <p>Answer in your head first, then open the answer.</p>
-                <details>
-                    <summary>1. What are the four parts of the box model?</summary>
-                    <p>Content, padding, border and margin.</p>
-                </details>
-                <details>
-                    <summary>2. What does border-box change?</summary>
-                    <p>Width and height include padding and border.</p>
-                </details>
-                <details>
-                    <summary>3. How is inline-block different from inline?</summary>
-                    <p>Inline-block stays on the line like inline, but it accepts width and height.</p>
-                </details>
-            </section>
-            <section id="tips">
-                <h2>Tips and common mistakes</h2>
-                <div class="tip"><b>Common mistake</b>
-                    <p>Expecting vertical margins to add up. Between adjacent blocks they collapse and the larger one
-                        wins.</p>
-                </div>
-                <div class="tip pro"><b>Pro tip</b>
-                    <p>Start your stylesheet with <code>* { box-sizing: border-box; }</code> so widths behave
-                        predictably.</p>
-                </div>
-            </section>
+&lt;div class=&quot;box6&quot;&gt;Content, padding, border, margin and a shadow.&lt;/div&gt;
+&lt;span class=&quot;tag6&quot;&gt;One&lt;/span&gt;&lt;span class=&quot;tag6&quot;&gt;Two&lt;/span&gt;&lt;span class=&quot;tag6&quot;&gt;Three&lt;/span&gt;</code></pre>
 
-            <nav class="pager" aria-label="Lecture navigation">
-                <div class="prev"><a class="btn btn-light" href="lecture-05.html">Previous: CSS Basics: Selectors,
-                        Cascade and Text</a></div>
-                <div class="mid"><a href="../index.html#lectures">All lectures</a></div>
-                <div class="next"><a class="btn btn-primary" href="lecture-07.html">Next: Positioning, Stacking and
-                        Floats</a></div>
-            </nav>
-        </main>
-    </div>
+        <h2>Output</h2>
+        <div class="output">
+            <style>
+                .box6 {
+                    box-sizing: border-box;
+                    width: 260px;
+                    padding: 20px;
+                    border: 4px solid #1f4e8c;
+                    margin: 16px;
+                    background-color: #e8f0fb;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+                }
 
-    <footer class="footer">
-        <div class="wrap">
-            <div>
-                <h3>Web Technologies</h3>
-                <p>A student-built learning platform for CSC336, made with HTML and CSS only.</p>
-            </div>
-            <div>
-                <h3>Explore</h3>
-                <ul>
-                    <li><a href="../index.html#lectures">Lectures</a></li>
-                    <li><a href="../index.html#practice">Practice</a></li>
-                    <li><a href="../index.html#resources">Resources</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3>Course</h3>
-                <ul>
-                    <li>COMSATS University Islamabad, Vehari Campus</li>
-                    <li>Instructor: Yasmeen Jana</li>
-                </ul>
-            </div>
-            <p class="copy">Designed and built by Amina Maqsood. Web Technologies (CSC336).</p>
+                .tag6 {
+                    display: inline-block;
+                    width: 90px;
+                    padding: 8px;
+                    margin: 4px;
+                    background-color: #1f4e8c;
+                    color: white;
+                    text-align: center;
+                }
+            </style>
+            <div class="box6">Content, padding, border, margin and a shadow.</div>
+            <span class="tag6">One</span><span class="tag6">Two</span><span class="tag6">Three</span>
         </div>
+    </main>
+
+    <footer>
+        <p><a href="../index.html">Home</a> | <a href="lecture-05.html">Previous Lecture</a> | <a
+                href="lecture-07.html">Next Lecture</a></p>
+        <p>CSC336 Web Technologies | COMSATS University Islamabad, Vehari Campus</p>
     </footer>
 
-    <script src="../editor.js" defer></script>
 </body>
 
 </html>

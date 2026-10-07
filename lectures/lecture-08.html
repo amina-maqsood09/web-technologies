@@ -3,263 +3,199 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lecture 08: Effects, Fonts, Variables and Media Queries | Web Technologies</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Sora:wght@600;700&display=swap"
-        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 8 | Web Technologies</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 
-<body id="top">
+<body>
 
-    <header class="nav">
-        <div class="wrap">
-            <a class="brand" href="../index.html"><span class="brand-mark">WT</span><span class="brand-text">Web
-                    Technologies</span></a>
-            <nav aria-label="Main">
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../index.html#lectures">Lectures</a></li>
-                    <li><a href="#practice">Practice</a></li>
-                    <li><a href="#resources">Resources</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header>
+        <h1>Lecture 8: Effects, Animations and Responsive CSS</h1>
+        <p>Gradients, transforms, transitions, animations and media queries</p>
     </header>
 
-    <div class="lecture-head">
-        <div class="wrap">
-            <p class="crumbs"><a href="../index.html">Home</a> / <a href="../index.html#lectures">Lectures</a> / Lecture
-                08</p>
-            <h1>Effects, Fonts, Variables and Media Queries</h1>
-            <p>Polish your pages with rounded corners, gradients, transforms and animation, then make them flexible with
-                web fonts, custom properties and media queries.</p>
-            <div class="counter"><span>Lecture 08</span></div>
-        </div>
-    </div>
+    <main>
+        <h2>Summary</h2>
+        <p>This lecture explains how to polish a page and make it responsive. You will learn rounded corners, gradients,
+            opacity, transforms, transitions, keyframe animations, web fonts, custom properties and media queries.</p>
 
-    <div class="wrap lecture-layout">
-        <aside class="toc" aria-label="On this page">
-            <h2>On this page</h2>
-            <ol>
-                <li><a href="#learn">What you will learn</a></li>
-                <li><a href="#content">Lecture content</a></li>
-                <li><a href="#example">Worked example</a></li>
-                <li><a href="#try">Try it yourself</a></li>
-                <li><a href="#practice">Practice</a></li>
-                <li><a href="#resources">Resources</a></li>
-                <li><a href="#check">Quick check</a></li>
-                <li><a href="#tips">Tips and mistakes</a></li>
-            </ol>
-        </aside>
+        <h2>Topics Covered</h2>
+        <ul>
+            <li><strong>Visual effects</strong>
+                <ul>
+                    <li>border-radius, linear-gradient and box-shadow</li>
+                    <li>opacity makes the whole element transparent, rgba() only a colour</li>
+                </ul>
+            </li>
+            <li><strong>Transforms</strong>
+                <ul>
+                    <li>translate, rotate, scale and skew</li>
+                </ul>
+            </li>
+            <li><strong>Transitions and animations</strong>
+                <ul>
+                    <li>transition: property duration timing-function delay</li>
+                    <li>@keyframes with animation-name, duration and iteration-count</li>
+                </ul>
+            </li>
+            <li><strong>Web fonts and variables</strong>
+                <ul>
+                    <li>@font-face loads a font file</li>
+                    <li>Custom properties: --name and var(--name)</li>
+                </ul>
+            </li>
+            <li><strong>Media queries</strong>
+                <ul>
+                    <li>@media applies styles for certain screen sizes</li>
+                    <li>@supports checks browser support</li>
+                </ul>
+            </li>
+        </ul>
 
-        <main class="lecture-body">
-            <section id="learn">
-                <h2>What you will learn</h2>
-                <ul class="learn-list">
-                    <li>Rounded corners, gradients, shadows and opacity.</li>
-                    <li>Transforms (2D and 3D), transitions and keyframe animations.</li>
-                    <li>Web fonts, icon fonts and CSS custom properties.</li>
-                    <li>Media queries, feature queries and cross-browser compatibility.</li>
-                </ul>
-            </section>
-            <section id="content">
-                <h2>Lecture content</h2>
-                <h3>Rounded corners, gradients, shadows and opacity</h3>
-                <p><code>border-radius</code> rounds corners, and <code>50%</code> on a square makes a circle.
-                    <code>linear-gradient(90deg, colour1, colour2)</code> blends colours and can use several. A gradient
-                    overlay can darken an image. <code>opacity</code> fades the whole element, text included, while
-                    <code>rgba()</code> makes only a colour transparent.
-                </p>
-                <div class="cards">
-                    <div class="card">
-                        <h3>Too much shadow</h3>
-                        <p>Heavy shadows look cluttered.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Low opacity</h3>
-                        <p>Faded text is hard to read.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Gradient behind text</h3>
-                        <p>Check that the text stays readable.</p>
-                    </div>
-                </div>
-                <h3>Transforms</h3>
-                <ul class="chips">
-                    <li><b>translate()</b> move</li>
-                    <li><b>rotate()</b> turn</li>
-                    <li><b>scale()</b> grow or shrink</li>
-                    <li><b>skew()</b> slant</li>
-                </ul>
-                <p>3D transforms add depth with <code>perspective</code> and <code>transform-style: preserve-3d</code>.
-                    A transform does not reflow the layout around it.</p>
-                <h3>Transitions and keyframe animations</h3>
-                <p>A transition animates a change between two states:
-                    <code>transition: property duration timing-function delay</code>. For multi-step motion, define
-                    <code>@keyframes</code> and use <code>animation-name</code>, <code>animation-duration</code>,
-                    <code>animation-delay</code>, <code>animation-iteration-count</code>,
-                    <code>animation-direction</code> and <code>animation-fill-mode</code>. Animate only what you need,
-                    and respect users who prefer reduced motion with
-                    <code>@media (prefers-reduced-motion: reduce)</code>.
-                </p>
-                <h3>Web fonts, icon fonts and custom properties</h3>
-                <p><code>@font-face</code> loads a font file so you are not limited to fonts on the user's computer, and
-                    WOFF is a practical format. Icon fonts show icons as text. A custom property is a CSS variable:
-                    define it with <code>--name</code> (usually in <code>:root</code>), use it with
-                    <code>var(--name, fallback)</code>, and it can also be local and inherited.
-                </p>
-                <h3>Media queries, feature queries and compatibility</h3>
-                <p><code>@media</code> applies styles only under certain conditions, such as screen width or
-                    orientation, so a page adapts to phones, tablets and desktops. <code>@supports</code> checks whether
-                    the browser supports a feature before you use it. Vendor prefixes such as <code>-webkit-</code> were
-                    used for early features, so test across browsers with a compatibility checklist.</p>
-            </section>
-            <section id="example">
-                <h2>Worked example</h2>
-                <p>A button using a custom property, a smooth hover transition, and a mobile rule.</p>
-                <pre class="example">:root { --brand: #3b6bff; }
-.btn {
-  background: var(--brand);
-  transition: transform 0.2s ease;
-}
-.btn:hover { transform: translateY(-2px); }
-@media (max-width: 600px) {
-  .btn { width: 100%; }
-}</pre>
-            </section>
-            <section id="try">
-                <h2>Try it yourself</h2>
-                <p>Edit the code on the left and the result updates on the right. Press Reset to go back to the start.
-                </p>
-                <div class="try">
-                    <div class="try-pane">
-                        <div class="try-bar"><span>Edit the code</span><button type="button" data-reset>Reset</button>
-                        </div><textarea aria-label="Code editor" spellcheck="false">&lt;style&gt;
-  :root { --brand: #3b6bff; }
-  .btn {
-    background: var(--brand); color: #fff; border: 0; padding: 12px 24px;
-    transition: transform .2s ease;
+        <table>
+            <caption>Effects and Properties</caption>
+            <thead>
+                <tr>
+                    <th>Effect</th>
+                    <th>Property</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Rounded corners</td>
+                    <td>border-radius</td>
+                    <td>border-radius: 12px</td>
+                </tr>
+                <tr>
+                    <td>Gradient</td>
+                    <td>linear-gradient()</td>
+                    <td>linear-gradient(90deg, red, blue)</td>
+                </tr>
+                <tr>
+                    <td>Move or scale</td>
+                    <td>transform</td>
+                    <td>scale(1.1)</td>
+                </tr>
+                <tr>
+                    <td>Smooth change</td>
+                    <td>transition</td>
+                    <td>transition: transform 0.3s</td>
+                </tr>
+                <tr>
+                    <td>Keyframe animation</td>
+                    <td>animation</td>
+                    <td>animation: pulse 1s</td>
+                </tr>
+                <tr>
+                    <td>Screen size rule</td>
+                    <td>@media</td>
+                    <td>@media (max-width: 600px)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Example Code</h2>
+        <p>A hover transition, a gradient, a keyframe animation, a custom property and a media query.</p>
+        <pre><code>&lt;style&gt;
+  :root { --demo-color: #1f4e8c; }
+  .btn8 {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--demo-color);
+    color: white;
+    transition: transform 0.3s ease;
   }
-  .btn:hover { transform: scale(1.1); }
+  .btn8:hover { transform: scale(1.1); }
+  .gradient8 {
+    margin: 16px 0;
+    padding: 16px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #14305a, #4a90d9);
+    color: white;
+  }
+  .pulse8 {
+    width: 50px;
+    height: 50px;
+    background-color: var(--demo-color);
+    animation: pulse8 1s ease-in-out 3 alternate;
+  }
+  @keyframes pulse8 {
+    from { transform: scale(1); }
+    to { transform: scale(1.4); }
+  }
+  @media (max-width: 600px) {
+    .gradient8 { background: crimson; }
+  }
 &lt;/style&gt;
-&lt;button class=&quot;btn&quot;&gt;Hover me&lt;/button&gt;</textarea>
-                    </div>
-                    <div class="try-pane">
-                        <div class="try-bar"><span>Result</span></div><iframe title="Result" sandbox=""></iframe>
-                    </div>
-                </div>
-            </section>
-            <section id="practice">
-                <h2>Practice</h2>
-                <p>Try each challenge in your own editor first, then check the hint and the answer.</p>
-                <div class="grid-2">
-                    <article class="challenge">
-                        <h3>Challenge: smooth hover</h3>
-                        <p class="task">Make a card grow slightly on hover, smoothly.</p>
-                        <details>
-                            <summary>Show hint</summary>
-                            <p>Combine <code>transition</code> with <code>transform: scale()</code>.</p>
-                        </details>
-                        <details class="answer">
-                            <summary>Show answer</summary>
-                            <pre class="example" style="margin:0;border-radius:0">.card { transition: transform 0.3s ease; }
-.card:hover { transform: scale(1.05); }</pre>
-                        </details>
-                    </article>
-                    <article class="challenge">
-                        <h3>Challenge: faint text</h3>
-                        <p class="task">Why does <code>opacity: 0.5</code> on a button also make its text faint, and
-                            what could you use instead?</p>
-                        <details>
-                            <summary>Show hint</summary>
-                            <p>Opacity applies to the whole element.</p>
-                        </details>
-                        <details class="answer">
-                            <summary>Show answer</summary>
-                            <p>Opacity fades the entire element, including its text. Use <code>rgba()</code> on the
-                                background colour to fade only the background.</p>
-                        </details>
-                    </article>
-                </div>
-            </section>
-            <section id="resources">
-                <h2>Resources</h2>
-                <div class="link-cards"><a class="link-card"
-                        href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition" target="_blank"
-                        rel="noopener"><strong>MDN: transition</strong><span>Transitions and timing
-                            functions.</span></a><a class="link-card"
-                        href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media" target="_blank"
-                        rel="noopener"><strong>MDN: @media</strong><span>Media query syntax and features.</span></a><a
-                        class="link-card" href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow"
-                        target="_blank" rel="noopener"><strong>MDN: box-shadow</strong><span>Shadow syntax with
-                            examples.</span></a></div>
-            </section>
-            <section id="check" class="quiz">
-                <h2>Quick check</h2>
-                <p>Answer in your head first, then open the answer.</p>
-                <details>
-                    <summary>1. What is the difference between opacity and rgba()?</summary>
-                    <p>Opacity affects the whole element. rgba() affects only that colour.</p>
-                </details>
-                <details>
-                    <summary>2. When do you use keyframes instead of a transition?</summary>
-                    <p>When you need multi-step motion, since a transition only goes between two states.</p>
-                </details>
-                <details>
-                    <summary>3. What is @supports for?</summary>
-                    <p>It checks whether the browser supports a feature before you use it.</p>
-                </details>
-            </section>
-            <section id="tips">
-                <h2>Tips and common mistakes</h2>
-                <div class="tip"><b>Common mistake</b>
-                    <p>Animating too many properties at once, which can feel slow and distracting.</p>
-                </div>
-                <div class="tip pro"><b>Pro tip</b>
-                    <p>Store colours and spacing in custom properties on <code>:root</code>. Changing one value then
-                        updates the whole site.</p>
-                </div>
-            </section>
+&lt;button class=&quot;btn8&quot;&gt;Hover over me&lt;/button&gt;
+&lt;div class=&quot;gradient8&quot;&gt;A gradient box with rounded corners (turns red on small screens).&lt;/div&gt;
+&lt;div class=&quot;pulse8&quot;&gt;&lt;/div&gt;</code></pre>
 
-            <nav class="pager" aria-label="Lecture navigation">
-                <div class="prev"><a class="btn btn-light" href="lecture-07.html">Previous: Positioning, Stacking and
-                        Floats</a></div>
-                <div class="mid"><a href="../index.html#lectures">All lectures</a></div>
-                <div class="next"><a class="btn btn-primary" href="../index.html#lectures">Back to all lectures</a>
-                </div>
-            </nav>
-        </main>
-    </div>
+        <h2>Output</h2>
+        <div class="output">
+            <style>
+                :root {
+                    --demo-color: #1f4e8c;
+                }
 
-    <footer class="footer">
-        <div class="wrap">
-            <div>
-                <h3>Web Technologies</h3>
-                <p>A student-built learning platform for CSC336, made with HTML and CSS only.</p>
-            </div>
-            <div>
-                <h3>Explore</h3>
-                <ul>
-                    <li><a href="../index.html#lectures">Lectures</a></li>
-                    <li><a href="../index.html#practice">Practice</a></li>
-                    <li><a href="../index.html#resources">Resources</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3>Course</h3>
-                <ul>
-                    <li>COMSATS University Islamabad, Vehari Campus</li>
-                    <li>Instructor: Yasmeen Jana</li>
-                </ul>
-            </div>
-            <p class="copy">Designed and built by Amina Maqsood. Web Technologies (CSC336).</p>
+                .btn8 {
+                    padding: 12px 24px;
+                    border: none;
+                    border-radius: 8px;
+                    background-color: var(--demo-color);
+                    color: white;
+                    transition: transform 0.3s ease;
+                }
+
+                .btn8:hover {
+                    transform: scale(1.1);
+                }
+
+                .gradient8 {
+                    margin: 16px 0;
+                    padding: 16px;
+                    border-radius: 12px;
+                    background: linear-gradient(90deg, #14305a, #4a90d9);
+                    color: white;
+                }
+
+                .pulse8 {
+                    width: 50px;
+                    height: 50px;
+                    background-color: var(--demo-color);
+                    animation: pulse8 1s ease-in-out 3 alternate;
+                }
+
+                @keyframes pulse8 {
+                    from {
+                        transform: scale(1);
+                    }
+
+                    to {
+                        transform: scale(1.4);
+                    }
+                }
+
+                @media (max-width: 600px) {
+                    .gradient8 {
+                        background: crimson;
+                    }
+                }
+            </style>
+            <button class="btn8">Hover over me</button>
+            <div class="gradient8">A gradient box with rounded corners (turns red on small screens).</div>
+            <div class="pulse8"></div>
         </div>
+    </main>
+
+    <footer>
+        <p><a href="../index.html">Home</a> | <a href="lecture-07.html">Previous Lecture</a></p>
+        <p>CSC336 Web Technologies | COMSATS University Islamabad, Vehari Campus</p>
     </footer>
 
-    <script src="../editor.js" defer></script>
 </body>
 
 </html>

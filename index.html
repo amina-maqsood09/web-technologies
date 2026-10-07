@@ -3,304 +3,88 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Web Technologies | CSC336 Learning Platform</title>
-    <meta name="description"
-        content="A student-built Web Technologies learning platform with lectures, examples, practice challenges and quick checks.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Sora:wght@600;700&display=swap"
-        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Technologies</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body id="top">
+<body>
 
-    <!-- NAVIGATION -->
-    <header class="nav">
-        <div class="wrap">
-            <a class="brand" href="index.html">
-                <span class="brand-mark">WT</span>
-                <span class="brand-text">Web Technologies</span>
-            </a>
-            <nav aria-label="Main">
-                <ul>
-                    <li><a href="index.html" aria-current="page">Home</a></li>
-                    <li><a href="#lectures">Lectures</a></li>
-                    <li><a href="#practice">Practice</a></li>
-                    <li><a href="#resources">Resources</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header>
+        <h1>Web Technologies</h1>
+        <p>Amina Maqsood | FA24-BSE-019</p>
     </header>
 
     <main>
-        <!-- HERO -->
-        <section class="hero">
-            <div class="wrap">
-                <div>
-                    <h1>Understand how the web is built, one lecture at a time.</h1>
-                    <p>Short lessons from CSC336, rebuilt with clear explanations, worked examples, practice challenges
-                        and quick checks.</p>
-                    <div class="hero-actions">
-                        <a class="btn btn-primary" href="lectures/lecture-01.html">Start learning</a>
-                        <a class="btn btn-ghost" href="#lectures">Browse lectures</a>
-                    </div>
-                    <ul class="loop" aria-label="How each lecture works">
-                        <li>Learn</li>
-                        <li>Explore</li>
-                        <li>Practice</li>
-                        <li>Check</li>
-                    </ul>
-                </div>
+        <table>
+            <caption>Course Lectures Overview</caption>
+            <thead>
+                <tr>
+                    <th>Topic</th>
+                    <th>Lecture No</th>
+                    <th>Lecture Title</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2">Web Basics</td>
+                    <td>Lecture 1</td>
+                    <td>The Web and How It Works</td>
+                    <td><a href="lectures/lecture-01.html">View</a></td>
+                </tr>
+                <tr>
+                    <td>Lecture 2</td>
+                    <td>Tiered Web Architecture</td>
+                    <td><a href="lectures/lecture-02.html">View</a></td>
+                </tr>
 
-                <!-- hero visual: code on top, rendered result below -->
-                <div class="code-window" aria-hidden="true">
-                    <div class="code-bar"><i></i><i></i><i></i><span>index.html</span></div>
-                    <pre class="code-body"><span class="c">&lt;!-- your first web page --&gt;</span>
-<span class="t">&lt;h1&gt;</span>Hello, Web!<span class="t">&lt;/h1&gt;</span>
-<span class="t">&lt;p</span> <span class="a">class</span>=<span class="s">"lead"</span><span class="t">&gt;</span>
-  Browser, server, page.
-<span class="t">&lt;/p&gt;</span></pre>
-                    <div class="code-result">
-                        <small>What the browser shows</small>
-                        <strong>Hello, Web!</strong>
-                        <span class="bar"></span>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <tr>
+                    <td rowspan="2">HTML</td>
+                    <td>Lecture 3</td>
+                    <td>HTML Structure and Content</td>
+                    <td><a href="lectures/lecture-03.html">View</a></td>
+                </tr>
+                <tr>
+                    <td>Lecture 4</td>
+                    <td>HTML5, Semantics and Forms</td>
+                    <td><a href="lectures/lecture-04.html">View</a></td>
+                </tr>
 
-        <!-- STUDENT / COURSE INFO -->
-        <section class="student" aria-label="Student and course information">
-            <div class="wrap">
-                <dl>
-                    <div>
-                        <dt>Student</dt>
-                        <dd>Amina Maqsood</dd>
-                    </div>
-                    <div>
-                        <dt>Registration no.</dt>
-                        <dd>FA24-BSE-019</dd>
-                    </div>
-                    <div>
-                        <dt>Course</dt>
-                        <dd>Web Technologies (CSC336)</dd>
-                    </div>
-                    <div>
-                        <dt>Instructor</dt>
-                        <dd>Yasmeen Jana</dd>
-                    </div>
-                </dl>
-            </div>
-        </section>
+                <tr>
+                    <td rowspan="2">CSS Fundamentals</td>
+                    <td>Lecture 5</td>
+                    <td>CSS Basics, Selectors and Cascade</td>
+                    <td><a href="lectures/lecture-05.html">View</a></td>
+                </tr>
+                <tr>
+                    <td>Lecture 6</td>
+                    <td>CSS Box Model, Display and Spacing</td>
+                    <td><a href="lectures/lecture-06.html">View</a></td>
+                </tr>
 
-        <!-- LEARNING PATH -->
-        <section id="path">
-            <div class="wrap">
-                <div class="section-head">
-                    <h2>Your route through the course</h2>
-                    <p>Follow the stops in order, or jump to the one you need. New lectures are added as the course
-                        moves forward.</p>
-                </div>
-                <ol class="path">
-                    <li><a href="lectures/lecture-01.html"><span class="num">01</span><strong>How the Web
-                                Works</strong></a></li>
-                    <li><a href="lectures/lecture-02.html"><span class="num">02</span><strong>Tiered Web
-                                Architecture</strong></a></li>
-                    <li><a href="lectures/lecture-03.html"><span class="num">03</span><strong>HTML Structure and
-                                Content</strong></a></li>
-                    <li><a href="lectures/lecture-04.html"><span class="num">04</span><strong>Semantic HTML and
-                                Forms</strong></a></li>
-                    <li><a href="lectures/lecture-05.html"><span class="num">05</span><strong>CSS Basics: Selectors,
-                                Cascade and Text</strong></a></li>
-                    <li><a href="lectures/lecture-06.html"><span class="num">06</span><strong>Box Model and
-                                Display</strong></a></li>
-                    <li><a href="lectures/lecture-07.html"><span class="num">07</span><strong>Positioning, Stacking and
-                                Floats</strong></a></li>
-                    <li><a href="lectures/lecture-08.html"><span class="num">08</span><strong>Effects, Fonts, Variables
-                                and Media Queries</strong></a></li>
-                </ol>
-            </div>
-        </section>
-
-        <!-- REQUIRED LECTURE TABLE -->
-        <section id="lectures" style="padding-top:0">
-            <div class="wrap">
-                <div class="section-head">
-                    <h2>All lectures</h2>
-                    <p>Every lecture has its own page with a summary, an example, a challenge and a quick check.</p>
-                </div>
-                <div class="table-wrap">
-                    <table class="stack">
-                        <caption class="sr-only" style="position:absolute;left:-9999px">Web Technologies lectures
-                        </caption>
-                        <thead>
-                            <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">Lecture title</th>
-                                <th scope="col"><span style="position:absolute;left:-9999px">Link</span></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="no">01</td>
-                                <td class="title">How the Web Works</td>
-                                <td class="open"><a href="lectures/lecture-01.html">Open lecture</a></td>
-                            </tr>
-                            <tr>
-                                <td class="no">02</td>
-                                <td class="title">Tiered Web Architecture</td>
-                                <td class="open"><a href="lectures/lecture-02.html">Open lecture</a></td>
-                            </tr>
-                            <tr>
-                                <td class="no">03</td>
-                                <td class="title">HTML Structure and Content</td>
-                                <td class="open"><a href="lectures/lecture-03.html">Open lecture</a></td>
-                            </tr>
-                            <tr>
-                                <td class="no">04</td>
-                                <td class="title">Semantic HTML and Forms</td>
-                                <td class="open"><a href="lectures/lecture-04.html">Open lecture</a></td>
-                            </tr>
-                            <tr>
-                                <td class="no">05</td>
-                                <td class="title">CSS Basics: Selectors, Cascade and Text</td>
-                                <td class="open"><a href="lectures/lecture-05.html">Open lecture</a></td>
-                            </tr>
-                            <tr>
-                                <td class="no">06</td>
-                                <td class="title">Box Model and Display</td>
-                                <td class="open"><a href="lectures/lecture-06.html">Open lecture</a></td>
-                            </tr>
-                            <tr>
-                                <td class="no">07</td>
-                                <td class="title">Positioning, Stacking and Floats</td>
-                                <td class="open"><a href="lectures/lecture-07.html">Open lecture</a></td>
-                            </tr>
-                            <tr>
-                                <td class="no">08</td>
-                                <td class="title">Effects, Fonts, Variables and Media Queries</td>
-                                <td class="open"><a href="lectures/lecture-08.html">Open lecture</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- PRACTICE -->
-        <section id="practice" style="background:var(--white)">
-            <div class="wrap">
-                <div class="section-head">
-                    <h2>Try it before you check it</h2>
-                    <p>Reading is only half of learning. Attempt each challenge first, then open the hint or the answer.
-                    </p>
-                </div>
-                <div class="grid-2">
-                    <article class="challenge">
-                        <h3>Challenge: split the URL</h3>
-                        <p class="task">Name each part of this address.</p>
-                        <code class="sample">https://www.example.com:443/courses/web?id=101#http</code>
-                        <details>
-                            <summary>Show hint</summary>
-                            <p>Look for the symbols <code>://</code>, <code>:</code>, <code>/</code>, <code>?</code> and
-                                <code>#</code>. Each one starts a new part.</p>
-                        </details>
-                        <details class="answer">
-                            <summary>Show answer</summary>
-                            <ul class="chips">
-                                <li><b>scheme</b> https://</li>
-                                <li><b>subdomain</b> www</li>
-                                <li><b>domain</b> example.com</li>
-                                <li><b>port</b> :443</li>
-                                <li><b>path</b> /courses/web</li>
-                                <li><b>query</b> ?id=101</li>
-                                <li><b>fragment</b> #http</li>
-                            </ul>
-                        </details>
-                    </article>
-
-                    <article class="challenge">
-                        <h3>Challenge: read the status</h3>
-                        <p class="task">A browser asks for a page that does not exist. Which status code group does the
-                            server answer with, and what is the common example?</p>
-                        <details>
-                            <summary>Show hint</summary>
-                            <p>The mistake is on the client's side: the address was wrong.</p>
-                        </details>
-                        <details class="answer">
-                            <summary>Show answer</summary>
-                            <p>The 4xx group (client errors). The common example is <code>404 Not Found</code>.</p>
-                        </details>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- RESOURCES -->
-        <section id="resources">
-            <div class="wrap">
-                <div class="section-head">
-                    <h2>Keep learning</h2>
-                    <p>One video to start, and three trusted references to keep open while you study.</p>
-                </div>
-
-                <div class="video-card">
-                    <a class="video-thumb"
-                        href="https://www.youtube.com/watch?v=aRUhd1Wd3Sw&amp;list=PLDzeHZWIZsTo0wSBcg4-NMIbC0L8evLrD&amp;index=2"
-                        target="_blank" rel="noopener" aria-label="Watch How the Internet Works on YouTube">
-                        <span class="play"></span>
-                    </a>
-                    <div class="video-info">
-                        <h3>How the Internet Works</h3>
-                        <p>Watch this after Lecture 1. It shows what happens between typing an address and seeing a
-                            page.</p>
-                        <a class="btn btn-primary"
-                            href="https://www.youtube.com/watch?v=aRUhd1Wd3Sw&amp;list=PLDzeHZWIZsTo0wSBcg4-NMIbC0L8evLrD&amp;index=2"
-                            target="_blank" rel="noopener">Watch on YouTube</a>
-                    </div>
-                </div>
-
-                <div class="link-cards">
-                    <a class="link-card" href="https://developer.mozilla.org/" target="_blank"
-                        rel="noopener"><strong>MDN Web Docs</strong><span>Clear reference for HTML, CSS and
-                            HTTP.</span></a>
-                    <a class="link-card" href="https://www.w3.org/standards/" target="_blank" rel="noopener"><strong>W3C
-                            Standards</strong><span>The official home of web standards.</span></a>
-                    <a class="link-card" href="https://html.spec.whatwg.org/" target="_blank"
-                        rel="noopener"><strong>HTML Living Standard</strong><span>The WHATWG specification for
-                            HTML.</span></a>
-                </div>
-            </div>
-        </section>
+                <tr>
+                    <td rowspan="2">Advanced CSS</td>
+                    <td>Lecture 7</td>
+                    <td>Positioning, z-index and Floats</td>
+                    <td><a href="lectures/lecture-07.html">View</a></td>
+                </tr>
+                <tr>
+                    <td>Lecture 8</td>
+                    <td>Effects, Animations and Responsive CSS</td>
+                    <td><a href="lectures/lecture-08.html">View</a></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">Total: 8 Lectures in 4 Topics</td>
+                </tr>
+            </tfoot>
+        </table>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="wrap">
-            <div>
-                <h3>Web Technologies</h3>
-                <p>A student-built learning platform for CSC336, made with HTML and CSS only.</p>
-            </div>
-            <div>
-                <h3>Explore</h3>
-                <ul>
-                    <li><a href="#lectures">Lectures</a></li>
-                    <li><a href="#practice">Practice</a></li>
-                    <li><a href="#resources">Resources</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3>Course</h3>
-                <ul>
-                    <li>COMSATS University Islamabad, Vehari Campus</li>
-                    <li>Instructor: Yasmeen Jana</li>
-                </ul>
-            </div>
-            <p class="copy">Designed and built by Amina Maqsood. Web Technologies (CSC336), COMSATS University
-                Islamabad, Vehari Campus.</p>
-        </div>
+    <footer>
+        <p>CSC336 Web Technologies | COMSATS University Islamabad, Vehari Campus</p>
     </footer>
 
 </body>

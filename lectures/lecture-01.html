@@ -3,502 +3,203 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lecture 01: How the Web Works | Web Technologies</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Sora:wght@600;700&display=swap"
-        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 1 | Web Technologies</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 
-<body id="top">
+<body>
 
-    <header class="nav">
-        <div class="wrap">
-            <a class="brand" href="../index.html">
-                <span class="brand-mark">WT</span>
-                <span class="brand-text">Web Technologies</span>
-            </a>
-            <nav aria-label="Main">
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../index.html#lectures">Lectures</a></li>
-                    <li><a href="#practice">Practice</a></li>
-                    <li><a href="#video">Resources</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header>
+        <h1>Lecture 1: The Web and How It Works</h1>
+        <p>The Internet, the Web and what happens when you open a page</p>
     </header>
 
-    <div class="lecture-head">
-        <div class="wrap">
-            <p class="crumbs"><a href="../index.html">Home</a> / <a href="../index.html#lectures">Lectures</a> / Lecture
-                01</p>
-            <h1>How the Web Works</h1>
-            <p>From the Internet and the Web, to what happens when you open a page, to how HTML became the standard we
-                use today.</p>
-            <div class="counter">
-                <span>Lecture 01</span>
-            </div>
-        </div>
-    </div>
+    <main>
+        <h2>Summary</h2>
+        <p>This lecture explains the difference between the Internet and the Web, what you need to create and publish a
+            website, how a browser and a server talk to each other, and how HTML developed over time.</p>
 
-    <div class="wrap lecture-layout">
-
-        <aside class="toc" aria-label="On this page">
-            <h2>On this page</h2>
-            <ol>
-                <li><a href="#learn">What you will learn</a></li>
-                <li><a href="#content">Lecture content</a></li>
-                <li><a href="#example">Worked example</a></li>
-                <li><a href="#try">Try it yourself</a></li>
-                <li><a href="#practice">Practice</a></li>
-                <li><a href="#video">Video</a></li>
-                <li><a href="#check">Quick check</a></li>
-                <li><a href="#tips">Tips and mistakes</a></li>
-            </ol>
-        </aside>
-
-        <main class="lecture-body">
-
-            <section id="learn">
-                <h2>What you will learn</h2>
-                <ul class="learn-list">
-                    <li>The difference between the Internet and the Web.</li>
-                    <li>What a web platform is and what it is made of.</li>
-                    <li>What you need to create, publish and view a website.</li>
-                    <li>How a browser and a server talk: request and response.</li>
-                    <li>Key vocabulary: URL, URI, DNS, HTTP, HTTPS, methods, status codes and headers.</li>
-                    <li>Who sets web standards, and how HTML developed.</li>
-                    <li>The main types of web applications: static, dynamic, MPA, SPA and PWA.</li>
-                </ul>
-            </section>
-
-            <section id="content">
-                <h2>Lecture content</h2>
-
-                <h3>Internet vs. Web</h3>
-                <div class="cards">
-                    <div class="card">
-                        <h3>The Internet</h3>
-                        <p>A global network of billions of connected computers. It carries data between devices and
-                            networks.</p>
-                    </div>
-                    <div class="card">
-                        <h3>The World Wide Web</h3>
-                        <p>A system of linked documents (web pages) and applications that runs on top of the Internet.
-                        </p>
-                    </div>
-                </div>
-                <p class="sub">Think of the Internet as the roads and the Web as the services and content travelling on
-                    them.</p>
-
-                <h3>Web platforms</h3>
-                <p>A web platform is a digital environment that lets people use, build and deploy web-based applications
-                    and services. Examples include social media (Facebook, Instagram), e-commerce (Shopify,
-                    WooCommerce), content management systems (WordPress, Drupal) and cloud platforms (AWS, Google Cloud,
-                    Azure).</p>
-                <div class="cards">
-                    <div class="card">
-                        <h3>Infrastructure</h3>
-                        <p>Servers, databases and network resources.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Development tools</h3>
-                        <p>HTML, CSS, JavaScript, libraries and frameworks.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Content management</h3>
-                        <p>Tools to organize and deliver content.</p>
-                    </div>
-                    <div class="card">
-                        <h3>User interface</h3>
-                        <p>Pages, forms and menus users touch.</p>
-                    </div>
-                    <div class="card">
-                        <h3>APIs</h3>
-                        <p>Let different software systems talk to each other.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Security</h3>
-                        <p>Authentication, encryption and access control.</p>
-                    </div>
-                </div>
-                <div class="tip pro"><b>Memory trick</b>
-                    <p>The first letters spell a sentence: <em>Intelligent Developers Create User Applications
-                            Securely</em>.</p>
-                </div>
-
-                <h3>Creating a website</h3>
-                <p>A website is a group of related pages, usually stored on one web server. A web server is a computer
-                    that lets users reach those pages. To make a website you need four things:</p>
-                <div class="cards">
-                    <div class="card">
-                        <h3>A text editor</h3>
-                        <p>To write the code. A plain editor stores exactly what you type. Authoring tools add
-                            suggestions (IntelliSense) and WYSIWYG, which shows the result while you edit. An IDE does
-                            this and also supports other kinds of software.</p>
-                    </div>
-                    <div class="card">
-                        <h3>An upload tool</h3>
-                        <p>Publishing means uploading your page to a web server so other people can reach it. Some IDEs
-                            upload for you. Others need a separate tool such as WinSCP.</p>
-                    </div>
-                    <div class="card">
-                        <h3>A hosting service</h3>
-                        <p>Uploaded files need a web server with hosting in place before they can be served as web
-                            pages.</p>
-                    </div>
-                    <div class="card">
-                        <h3>A browser</h3>
-                        <p>Software that retrieves and shows web pages: Chrome, Edge, Firefox, Safari, Opera.</p>
-                    </div>
-                </div>
-                <p>A file such as <code>index.html</code> on your own computer is only local. Other people can reach it
-                    only after it is uploaded to a server that serves it.</p>
-
-                <h3>Client and server: request and response</h3>
-                <p>When you open a website, the browser (client) sends an HTTP request. The web server processes it and
-                    sends back an HTTP response. The browser then renders the page.</p>
-
-                <h3>URL and URI</h3>
-                <p>A URL is the address of a resource. A URI is the broader idea of identifying a resource. Every URL is
-                    a URI, but not every URI is a URL.</p>
-
-                <h3>DNS</h3>
-                <p>You type <code>google.com</code>, but computers communicate with IP addresses. The Domain Name System
-                    (DNS) turns a name into an IP address, like a phone contacts list.</p>
-
-                <h3>HTTP and HTTPS</h3>
-                <p>HTTP is the protocol clients and servers use to communicate. HTTPS is HTTP over a TLS-protected
-                    connection, which adds encryption and server authentication.</p>
-                <div class="table-wrap scroll">
-                    <table class="compare">
-                        <thead>
-                            <tr>
-                                <th scope="col">Method</th>
-                                <th scope="col">What it does</th>
-                                <th scope="col">Everyday example</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>GET</td>
-                                <td>Retrieves data from the server</td>
-                                <td>Opening a web page</td>
-                            </tr>
-                            <tr>
-                                <td>POST</td>
-                                <td>Sends data to be processed</td>
-                                <td>Submitting a form</td>
-                            </tr>
-                            <tr>
-                                <td>PUT / PATCH</td>
-                                <td>Updates existing data</td>
-                                <td>Editing a saved record</td>
-                            </tr>
-                            <tr>
-                                <td>DELETE</td>
-                                <td>Removes data</td>
-                                <td>Deleting a record</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="table-wrap scroll">
-                    <table class="compare">
-                        <thead>
-                            <tr>
-                                <th scope="col">Status code</th>
-                                <th scope="col">Meaning</th>
-                                <th scope="col">Example</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1xx</td>
-                                <td>Informational</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>2xx</td>
-                                <td>Success</td>
-                                <td>200 OK</td>
-                            </tr>
-                            <tr>
-                                <td>3xx</td>
-                                <td>Redirection</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>4xx</td>
-                                <td>Client error</td>
-                                <td>404 Not Found</td>
-                            </tr>
-                            <tr>
-                                <td>5xx</td>
-                                <td>Server error</td>
-                                <td>500 Internal Server Error</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p>HTTP messages also carry <strong>headers</strong>, extra information about the request or response.
-                    For example, <code>Content-Type</code> says what kind of data is being sent, and
-                    <code>Authorization</code> carries credentials for protected resources.</p>
-
-                <h3>Web standards</h3>
-                <p>Standards keep browsers and tools consistent so a page works the same way everywhere.</p>
-                <div class="cards">
-                    <div class="card">
-                        <h3>W3C</h3>
-                        <p>World Wide Web Consortium</p>
-                    </div>
-                    <div class="card">
-                        <h3>WHATWG</h3>
-                        <p>Web Hypertext Application Technology Working Group</p>
-                    </div>
-                    <div class="card">
-                        <h3>ECMA</h3>
-                        <p>Standardizes JavaScript (ECMAScript)</p>
-                    </div>
-                    <div class="card">
-                        <h3>IETF</h3>
-                        <p>Internet Engineering Task Force</p>
-                    </div>
-                </div>
-
-                <h3>History of HTML</h3>
-                <ol class="timeline">
-                    <li><b>1989</b>Tim Berners-Lee at CERN proposes hypertext links between research papers.</li>
-                    <li><b>1989-1991</b>He designs HTML, the ideas behind the Web including HTTP, and a prototype
-                        browser.</li>
-                    <li><b>1993</b>The first formal HTML proposal goes to the IETF.</li>
-                    <li><b>1994</b>Berners-Lee founds the W3C, which takes over HTML.</li>
-                    <li><b>1997-2000</b>HTML4 arrives in 1997. HTML 4.01 in 2000 is the last HTML4 revision.</li>
-                    <li><b>2001</b>XHTML 1.1 is too strict: a single error should stop the page from showing. Browsers
-                        and developers largely avoid it.</li>
-                    <li><b>2004</b>Some members leave the W3C and form WHATWG. They want backward compatibility and
-                        start Web Apps 1.0.</li>
-                    <li><b>2009</b>The W3C drops XHTML 2.0 and works with WHATWG. Web Apps 1.0 becomes the basis of
-                        HTML5.</li>
-                    <li><b>2011-2017</b>The HTML5 logo appears in 2011. HTML 5.1 becomes a W3C recommendation in 2017
-                        and HTML 5.2 follows as a working draft.</li>
-                </ol>
-                <p>XHTML added strict rules: quote attribute values, use <code>/</code> for void elements, and close
-                    container elements. Browser makers had added features beyond the standard to win market share, which
-                    made code harder to write and maintain. HTML5 brought useful features into one shared standard.</p>
-                <p>The W3C publishes stable, numbered versions. WHATWG keeps a living standard that updates
-                    continuously. They are separate organizations with closely aligned standards.</p>
-
-                <h3>Types of web applications</h3>
-                <div class="cards">
-                    <div class="card">
-                        <h3>Static</h3>
-                        <p>Prebuilt files served as they are. Example: portfolio or brochure site.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Dynamic</h3>
-                        <p>Content generated from data. Example: online store or portal.</p>
-                    </div>
-                    <div class="card">
-                        <h3>MPA</h3>
-                        <p>Multi-Page Application. Moving between sections loads another page. Example: traditional
-                            university portal.</p>
-                    </div>
-                    <div class="card">
-                        <h3>SPA</h3>
-                        <p>Single-Page Application. One main page whose views change dynamically. Example: Gmail-like
-                            apps.</p>
-                    </div>
-                    <div class="card">
-                        <h3>PWA</h3>
-                        <p>Progressive Web Application. A web app with app-like abilities, such as being installable.
-                        </p>
-                    </div>
-                </div>
-                <p>Picture a university website growing: a fixed brochure (static), then a portal showing your courses
-                    and marks (dynamic), then separate pages for courses and marks (MPA), then one page that changes its
-                    view (SPA), and finally something you can install like an app (PWA).</p>
-            </section>
-
-            <section id="example">
-                <h2>Worked example: reading a URL</h2>
-                <p>An address is a map. Each part tells the browser something different.</p>
-                <pre
-                    class="example"><span class="t">https://</span><span class="a">www.</span><span class="s">example.com</span><span class="t">:443</span><span class="a">/courses/web</span><span class="s">?id=101</span><span class="t">#http</span></pre>
-                <ul class="chips">
-                    <li><b>scheme</b> https://</li>
-                    <li><b>subdomain</b> www</li>
-                    <li><b>domain</b> example.com</li>
-                    <li><b>port</b> :443</li>
-                    <li><b>path</b> /courses/web</li>
-                    <li><b>query</b> ?id=101</li>
-                    <li><b>fragment</b> #http</li>
-                </ul>
-                <p>Now follow what happens when you type this address:</p>
-                <pre class="example"><span class="c">1.</span> Browser asks DNS for the IP address of example.com
-<span class="c">2.</span> Browser sends an HTTP request (GET /courses/web?id=101)
-<span class="c">3.</span> Web server processes the request
-<span class="c">4.</span> Server sends back an HTTP response (for example, 200 OK)
-<span class="c">5.</span> Browser renders the page</pre>
-            </section>
-
-            <section id="try">
-                <h2>Try it yourself</h2>
-                <p>Edit the code on the left and the result updates on the right. Press Reset to go back to the start.
-                </p>
-                <div class="try">
-                    <div class="try-pane">
-                        <div class="try-bar"><span>Edit the code</span><button type="button" data-reset>Reset</button>
-                        </div><textarea aria-label="Code editor" spellcheck="false">&lt;h1&gt;Hello, Web!&lt;/h1&gt;
-&lt;p&gt;Change this text and watch the result update.&lt;/p&gt;
-&lt;a href=&quot;https://example.com&quot;&gt;A link&lt;/a&gt;</textarea>
-                    </div>
-                    <div class="try-pane">
-                        <div class="try-bar"><span>Result</span></div><iframe title="Result" sandbox=""></iframe>
-                    </div>
-                </div>
-            </section>
-            <section id="practice">
-                <h2>Practice</h2>
-                <p>Try each challenge on paper first, then check the hint and the answer.</p>
-                <div class="grid-2">
-                    <article class="challenge">
-                        <h3>Challenge: split the URL</h3>
-                        <p class="task">Name each part of this address.</p>
-                        <code class="sample">https://shop.example.pk:8080/products/phones?brand=samsung#reviews</code>
-                        <details>
-                            <summary>Show hint</summary>
-                            <p>Look for <code>://</code>, <code>:</code>, <code>/</code>, <code>?</code> and
-                                <code>#</code>.</p>
-                        </details>
-                        <details class="answer">
-                            <summary>Show answer</summary>
-                            <ul class="chips">
-                                <li><b>scheme</b> https://</li>
-                                <li><b>subdomain</b> shop</li>
-                                <li><b>domain</b> example.pk</li>
-                                <li><b>port</b> :8080</li>
-                                <li><b>path</b> /products/phones</li>
-                                <li><b>query</b> ?brand=samsung</li>
-                                <li><b>fragment</b> #reviews</li>
-                            </ul>
-                        </details>
-                    </article>
-
-                    <article class="challenge">
-                        <h3>Challenge: choose the method</h3>
-                        <p class="task">Which HTTP method fits each action? (a) Opening a page. (b) Submitting a login
-                            form. (c) Deleting a saved record.</p>
-                        <details>
-                            <summary>Show hint</summary>
-                            <p>Ask yourself: am I only reading, sending new data, or removing something?</p>
-                        </details>
-                        <details class="answer">
-                            <summary>Show answer</summary>
-                            <p>(a) GET, (b) POST, (c) DELETE.</p>
-                        </details>
-                    </article>
-                </div>
-            </section>
-
-            <section id="video">
-                <h2>Watch and visualize</h2>
-                <div class="video-card">
-                    <a class="video-thumb"
-                        href="https://www.youtube.com/watch?v=aRUhd1Wd3Sw&amp;list=PLDzeHZWIZsTo0wSBcg4-NMIbC0L8evLrD&amp;index=2"
-                        target="_blank" rel="noopener" aria-label="Watch How the Internet Works on YouTube">
-                        <span class="play"></span>
-                    </a>
-                    <div class="video-info">
-                        <h3>How the Internet Works</h3>
-                        <p>See the request and response journey from this lecture in motion.</p>
-                        <a class="btn btn-primary"
-                            href="https://www.youtube.com/watch?v=aRUhd1Wd3Sw&amp;list=PLDzeHZWIZsTo0wSBcg4-NMIbC0L8evLrD&amp;index=2"
-                            target="_blank" rel="noopener">Watch on YouTube</a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="check" class="quiz">
-                <h2>Quick check</h2>
-                <p>Answer in your head first, then open the answer.</p>
-                <details>
-                    <summary>1. What is the difference between the Internet and the Web?</summary>
-                    <p>The Internet is the global network infrastructure. The Web is a system of linked pages and
-                        applications that runs on top of it.</p>
-                </details>
-                <details>
-                    <summary>2. What is the relationship between a URL and a URI?</summary>
-                    <p>Every URL is a URI, but not every URI is a URL.</p>
-                </details>
-                <details>
-                    <summary>3. What does HTTPS add to HTTP?</summary>
-                    <p>A TLS-protected connection, which provides encryption and server authentication.</p>
-                </details>
-                <details>
-                    <summary>4. A server answers with status code 500. Who has the problem?</summary>
-                    <p>The server. 5xx codes are server errors, for example 500 Internal Server Error.</p>
-                </details>
-            </section>
-
-            <section id="tips">
-                <h2>Tips and common mistakes</h2>
-                <div class="tip">
-                    <b>Common mistake</b>
-                    <p>Treating the Internet and the Web as the same thing. The Web is only one service that uses the
-                        Internet.</p>
-                </div>
-                <div class="tip">
-                    <b>Common mistake</b>
-                    <p>Thinking a page is online because the file exists on your computer. It is only available to
-                        others after you publish it to a server.</p>
-                </div>
-                <div class="tip pro">
-                    <b>Pro tip</b>
-                    <p>Remember status codes by the first digit: 2 means success, 4 means the request was wrong, and 5
-                        means the server failed.</p>
-                </div>
-            </section>
-
-            <nav class="pager" aria-label="Lecture navigation">
-                <div class="prev"><a class="btn btn-light" href="../index.html">Home</a></div>
-                <div class="mid"><a href="../index.html#lectures">All lectures</a></div>
-                <div class="next"><a class="btn btn-primary" href="lecture-02.html">Next: Tiered Web Architecture</a>
-                </div>
-            </nav>
-
-        </main>
-    </div>
-
-    <footer class="footer">
-        <div class="wrap">
-            <div>
-                <h3>Web Technologies</h3>
-                <p>A student-built learning platform for CSC336, made with HTML and CSS only.</p>
-            </div>
-            <div>
-                <h3>Explore</h3>
+        <h2>Topics Covered</h2>
+        <ul>
+            <li><strong>Internet and Web</strong>
                 <ul>
-                    <li><a href="../index.html#lectures">Lectures</a></li>
-                    <li><a href="../index.html#practice">Practice</a></li>
-                    <li><a href="../index.html#resources">Resources</a></li>
+                    <li>The Internet is the global network of computers</li>
+                    <li>The Web is a system of linked pages that runs on the Internet</li>
                 </ul>
-            </div>
-            <div>
-                <h3>Course</h3>
+            </li>
+            <li><strong>Creating a website</strong>
                 <ul>
-                    <li>COMSATS University Islamabad, Vehari Campus</li>
-                    <li>Instructor: Yasmeen Jana</li>
+                    <li>Text editor, upload tool, hosting service and browser</li>
+                    <li>Publishing means uploading a page to a web server</li>
                 </ul>
-            </div>
-            <p class="copy">Designed and built by Amina Maqsood. Web Technologies (CSC336).</p>
+            </li>
+            <li><strong>How the Web works</strong>
+                <ul>
+                    <li>Browser (client) sends a request, server sends a response</li>
+                    <li>URL, DNS, HTTP and HTTPS</li>
+                </ul>
+            </li>
+            <li><strong>Standards and history</strong>
+                <ul>
+                    <li>W3C, WHATWG, ECMA and IETF</li>
+                    <li>HTML from 1989 to HTML5</li>
+                </ul>
+            </li>
+            <li><strong>Types of web applications</strong>
+                <ul>
+                    <li>Static, dynamic, MPA, SPA and PWA</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>What Happens When You Open a Page</h2>
+        <ol>
+            <li>You type a URL in the browser.</li>
+            <li>The browser asks DNS for the IP address of the domain name.</li>
+            <li>The browser sends an HTTP request to the web server.</li>
+            <li>The server processes the request and sends back an HTTP response.</li>
+            <li>The browser shows (renders) the page.</li>
+        </ol>
+        <h2>Parts of a URL</h2>
+        <p>For example, <code>https://www.example.com:443/courses/web?id=101#http</code> has these parts:</p>
+        <ul>
+            <li><strong>https://</strong> is the scheme (protocol)</li>
+            <li><strong>www.example.com</strong> is the domain name</li>
+            <li><strong>:443</strong> is the port</li>
+            <li><strong>/courses/web</strong> is the path</li>
+            <li><strong>?id=101</strong> is the query</li>
+            <li><strong>#http</strong> is the fragment</li>
+        </ul>
+        <table>
+            <caption>Common HTTP Methods</caption>
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>What it does</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>GET</td>
+                    <td>Gets data from the server</td>
+                    <td>Opening a web page</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>Sends data to the server</td>
+                    <td>Submitting a form</td>
+                </tr>
+                <tr>
+                    <td>PUT / PATCH</td>
+                    <td>Updates data</td>
+                    <td>Editing a record</td>
+                </tr>
+                <tr>
+                    <td>DELETE</td>
+                    <td>Removes data</td>
+                    <td>Deleting a record</td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <caption>HTTP Status Codes</caption>
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Meaning</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1xx</td>
+                    <td>Informational</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>2xx</td>
+                    <td>Success</td>
+                    <td>200 OK</td>
+                </tr>
+                <tr>
+                    <td>3xx</td>
+                    <td>Redirection</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>4xx</td>
+                    <td>Client error</td>
+                    <td>404 Not Found</td>
+                </tr>
+                <tr>
+                    <td>5xx</td>
+                    <td>Server error</td>
+                    <td>500 Internal Server Error</td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <caption>History of HTML</caption>
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Event</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1989</td>
+                    <td>Tim Berners-Lee proposes hypertext links at CERN</td>
+                </tr>
+                <tr>
+                    <td>1994</td>
+                    <td>The W3C is founded</td>
+                </tr>
+                <tr>
+                    <td>1997</td>
+                    <td>HTML4 is released</td>
+                </tr>
+                <tr>
+                    <td>2001</td>
+                    <td>XHTML 1.1 is too strict and is mostly avoided</td>
+                </tr>
+                <tr>
+                    <td>2004</td>
+                    <td>WHATWG is formed</td>
+                </tr>
+                <tr>
+                    <td>2009</td>
+                    <td>W3C drops XHTML 2.0 and works with WHATWG</td>
+                </tr>
+                <tr>
+                    <td>2011</td>
+                    <td>The HTML5 logo appears</td>
+                </tr>
+                <tr>
+                    <td>2017</td>
+                    <td>HTML 5.1 becomes a W3C recommendation</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Example Code</h2>
+        <pre><code>&lt;h3&gt;Welcome to Web Technologies&lt;/h3&gt;
+&lt;p&gt;Visit &lt;a href=&quot;https://example.com&quot;&gt;our site&lt;/a&gt;.&lt;/p&gt;</code></pre>
+
+        <h2>Output</h2>
+        <div class="output">
+            <h3>Welcome to Web Technologies</h3>
+            <p>Visit <a href="https://example.com">our site</a>.</p>
         </div>
+    </main>
+
+    <footer>
+        <p><a href="../index.html">Home</a> | <a href="lecture-02.html">Next Lecture</a></p>
+        <p>CSC336 Web Technologies | COMSATS University Islamabad, Vehari Campus</p>
     </footer>
 
-    <script src="../editor.js" defer></script>
 </body>
 
 </html>
