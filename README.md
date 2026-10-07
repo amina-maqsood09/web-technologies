@@ -1,6 +1,6 @@
-# Web Technologies: Learning Platform
+# Web Technologies (CSC336)
 
-A student-built learning website for **CSC336 Web Technologies**. Each lecture has its own page with a summary, a worked example, a "Try it yourself" editor, practice challenges, resources, and a quick check.
+A website for the Web Technologies course, built with **HTML and CSS only**. The homepage lists all eight lectures in a table, and each lecture has its own page with a summary, topics covered, a table, example code and its output.
 
 - **Student:** Amina Maqsood
 - **Registration no.:** FA24-BSE-019
@@ -13,28 +13,16 @@ https://amina-maqsood09.github.io/web-technologies/
 
 ## Lectures
 
-1. How the Web Works
-2. Tiered Web Architecture
-3. HTML Structure and Content
-4. Semantic HTML and Forms
-5. CSS Basics: Selectors, Cascade and Text
-6. Box Model and Display
-7. Positioning, Stacking and Floats
-8. Effects, Fonts, Variables and Media Queries
-
-## Features
-
-- Learning path and lecture table on the homepage
-- Responsive layout for desktop, tablet and mobile
-- Practice challenges with hints and answers (HTML `details` elements)
-- Quick check questions for every lecture
-- "Try it yourself" live editor on every lecture page
-
-## Built with
-
-- HTML
-- CSS
-- A small JavaScript file (`editor.js`) for the live editor only
+| Topic | Lecture | Title |
+|---|---|---|
+| Web Basics | 1 | The Web and How It Works |
+| Web Basics | 2 | Tiered Web Architecture |
+| HTML | 3 | HTML Structure and Content |
+| HTML | 4 | HTML5, Semantics and Forms |
+| CSS Fundamentals | 5 | CSS Basics, Selectors and Cascade |
+| CSS Fundamentals | 6 | CSS Box Model, Display and Spacing |
+| Advanced CSS | 7 | Positioning, z-index and Floats |
+| Advanced CSS | 8 | Effects, Animations and Responsive CSS |
 
 ## Project structure
 
@@ -42,7 +30,6 @@ https://amina-maqsood09.github.io/web-technologies/
 web-technologies/
 ├── index.html
 ├── style.css
-├── editor.js
 └── lectures/
     ├── lecture-01.html
     └── ... lecture-08.html
