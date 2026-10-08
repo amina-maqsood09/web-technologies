@@ -1,11 +1,14 @@
 /* ===== 1. Variables (Lecture 8) ===== */
 :root {
-    --brand: #1f4e8c;
-    --brand-dark: #14305a;
-    --accent: #e8f0fb;
-    --bg: #f3f6fb;
+    --brand: #6b3fa0;
+    --brand-dark: #3f2466;
+    --accent: #f0e9fa;
+    --bg: #f7f4fb;
     --text: #232a32;
     --radius: 12px;
+    --line: #e3d9f0;
+    --line-strong: #cdbde3;
+    --hover: #f6f1fb;
 }
 
 /* ===== 2. Reset (Lecture 5 + 6) ===== */
@@ -76,7 +79,7 @@ th {
 
 td {
     padding: 14px;
-    border-bottom: 1px solid #d9e2ef;
+    border-bottom: 1px solid var(--line);
 }
 
 /* Topic cells (the ones with rowspan) */
@@ -92,7 +95,7 @@ tbody tr {
 }
 
 tbody tr:hover {
-    background-color: #f0f6ff;
+    background-color: var(--hover);
 }
 
 /* Footer row of the table */
@@ -148,7 +151,7 @@ footer {
     }
 }
 
-/* ===== 10. Lecture pages (add at the END of style.css) ===== */
+/* ===== 10. Lecture pages ===== */
 main h2 {
     color: var(--brand-dark);
     border-bottom: 2px solid var(--accent);
@@ -210,46 +213,232 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* ===== Try It Yourself editor ===== */
-.try {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin: 16px 0;
+/* ===== 11. Form page (div + float + media query) ===== */
+.form-row::after {
+    content: "";
+    display: block;
+    clear: both;
 }
 
-.try textarea {
+.form-group {
+    float: left;
+    width: 50%;
+    padding: 0 8px 16px;
+}
+
+.form-group.full {
     width: 100%;
-    min-height: 180px;
-    font-family: monospace;
-    font-size: 14px;
-    padding: 10px;
-    border: 1px solid var(--brand);
-    border-radius: 8px;
-    resize: vertical;
 }
 
-.try iframe {
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: var(--brand-dark);
+}
+
+input,
+select,
+textarea {
     width: 100%;
-    min-height: 180px;
-    border: 1px solid var(--brand);
+    padding: 12px;
+    border: 1px solid var(--line-strong);
     border-radius: 8px;
-    background: white;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
 }
 
-.try button {
-    grid-column: 1 / -1;
-    justify-self: start;
-    background: var(--brand);
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px var(--accent);
+}
+
+button {
+    padding: 12px 32px;
+    border: none;
+    border-radius: 999px;
+    background-color: var(--brand);
     color: white;
-    border: 0;
-    padding: 8px 16px;
-    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
+    transition: transform .2s ease, background-color .2s ease;
 }
 
-@media (max-width: 700px) {
-    .try {
-        grid-template-columns: 1fr;
+button:hover {
+    background-color: var(--brand-dark);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .form-group {
+        float: none;
+        width: 100%;
+    }
+}
+
+/* ===== 12. Home page ===== */
+.info-row::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.info-box {
+    float: left;
+    width: 33.33%;
+    padding: 0 8px 16px;
+}
+
+.info-card {
+    background-color: var(--accent);
+    border-left: 4px solid var(--brand);
+    border-radius: 8px;
+    padding: 12px 16px;
+}
+
+.info-card span {
+    display: block;
+    font-size: 13px;
+    color: #5b6675;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-card strong {
+    color: var(--brand-dark);
+    font-size: 18px;
+}
+
+.table-box {
+    border: 1px solid var(--line-strong);
+    border-radius: 12px;
+    overflow-x: auto;
+    margin-top: 12px;
+}
+
+.table-box table {
+    margin-top: 0;
+}
+
+.lectures-table th {
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.lectures-table td {
+    border-right: 1px solid var(--line);
+}
+
+.lectures-table td[rowspan] {
+    border-right: 3px solid var(--brand);
+}
+
+.lectures-table td:last-child,
+.lectures-table th:last-child {
+    border-right: none;
+}
+
+.form-link {
+    margin-top: 8px;
+}
+
+.form-link a {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 999px;
+    background-color: var(--brand);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-link a:hover {
+    background-color: var(--brand-dark);
+}
+
+@media (max-width: 600px) {
+    .info-box {
+        float: none;
+        width: 100%;
+    }
+}
+
+/* ===== 13. Lecture sidebar ===== */
+.layout {
+    max-width: 1150px;
+    margin: 32px auto;
+    padding: 0 16px;
+}
+
+.layout::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.sidebar {
+    float: left;
+    width: 250px;
+    padding: 16px;
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+}
+
+.sidebar h3 {
+    margin: 16px 0 6px;
+    font-size: 13px;
+    color: var(--brand-dark);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar a {
+    display: block;
+    padding: 8px 12px;
+    border-left: 3px solid transparent;
+    border-radius: 6px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.sidebar a:hover {
+    background-color: var(--accent);
+}
+
+.sidebar a.active {
+    background-color: var(--accent);
+    border-left-color: var(--brand);
+    color: var(--brand-dark);
+    font-weight: bold;
+}
+
+.side-home a {
+    font-weight: bold;
+    color: var(--brand);
+}
+
+.layout main {
+    max-width: none;
+    margin: 0 0 0 274px;
+}
+
+@media (max-width: 800px) {
+    .sidebar {
+        float: none;
+        width: 100%;
+        margin-bottom: 16px;
+    }
+
+    .layout main {
+        margin-left: 0;
     }
 }
